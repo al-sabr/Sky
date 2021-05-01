@@ -1,3 +1,5 @@
+# Reminder setup for successful compilation #1
+
 set(CPP
 	#src/3rdparty/qtsingleapplication/qtsingleapplication.cpp
 	
