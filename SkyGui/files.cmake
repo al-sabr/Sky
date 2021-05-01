@@ -4,6 +4,7 @@
 # Reminder setup for successful compilation #4
 # Reminder setup for successful compilation #5
 # Reminder setup for successful compilation #6
+# Reminder setup for successful compilation #7
 
 set(CPP
 	src/3rdparty/qtsingleapplication/qtsingleapplication.cpp
@@ -32,7 +33,7 @@ set(CPP
 	src/graphicsview/WView.cpp
 	src/graphicsview/WViewDrag.cpp
 	src/graphicsview/WViewResizer.cpp
-	# src/graphicsview/WWindow.cpp
+	src/graphicsview/WWindow.cpp
 	
 	# src/image/WImageFilter.cpp
 	# src/image/WImageFilterColor.cpp
@@ -141,10 +142,10 @@ set( HPP
 	include/graphicsview/WViewDrag.h
 	include/graphicsview/WViewResizer
 	include/graphicsview/WViewResizer.h
-	# include/graphicsview/WView_p.h
-	# include/graphicsview/WWindow
-	# include/graphicsview/WWindow.h
-	# include/graphicsview/WWindow_p.h
+	include/graphicsview/WView_p.h
+	include/graphicsview/WWindow
+	include/graphicsview/WWindow.h
+	include/graphicsview/WWindow_p.h
 	
 	# include/image/WImageFilter
 	# include/image/WImageFilter.h
@@ -263,8 +264,8 @@ set( HPP
 	include/private/graphicsview/WResizer_p.h
 	include/private/graphicsview/WView_p
 	include/private/graphicsview/WView_p.h
-	# include/private/graphicsview/WWindow_p
-	# include/private/graphicsview/WWindow_p.h
+	include/private/graphicsview/WWindow_p
+	include/private/graphicsview/WWindow_p.h
 	
 	# include/private/image/WImageFilter_p
 	# include/private/image/WImageFilter_p.h
