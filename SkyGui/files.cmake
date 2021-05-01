@@ -1,5 +1,6 @@
 # Reminder setup for successful compilation #11
 # Reminder setup for successful compilation #12
+# Reminder setup for successful compilation #13
 
 set(CPP
 	src/3rdparty/qtsingleapplication/qtsingleapplication.cpp
@@ -8,7 +9,7 @@ set(CPP
 	src/controllers/WControllerView.cpp
 	
 	src/declarative/WDeclarativeAnimated.cpp
-	# src/declarative/WDeclarativeApplication.cpp
+	src/declarative/WDeclarativeApplication.cpp
 	src/declarative/WDeclarativeBorderImage.cpp
 	src/declarative/WDeclarativeBorders.cpp
 	src/declarative/WDeclarativeContextualPage.cpp
@@ -16,7 +17,7 @@ set(CPP
 	src/declarative/WDeclarativeImageBase.cpp
 	src/declarative/WDeclarativeImageSvg.cpp
 	src/declarative/WDeclarativeItem.cpp
-	# src/declarative/WDeclarativeListView.cpp
+	src/declarative/WDeclarativeListView.cpp
 	src/declarative/WDeclarativeMouseArea.cpp
 	# src/declarative/WDeclarativeMouseWatcher.cpp
 	# src/declarative/WDeclarativePlayer.cpp
@@ -86,8 +87,8 @@ set( HPP
 	include/declarative/WDeclarativeAnimated
 	include/declarative/WDeclarativeAnimated.h
 	include/declarative/WDeclarativeAnimated_p.h
-	# include/declarative/WDeclarativeApplication
-	# include/declarative/WDeclarativeApplication.h
+	include/declarative/WDeclarativeApplication
+	include/declarative/WDeclarativeApplication.h
 	include/declarative/WDeclarativeBorderImage
 	include/declarative/WDeclarativeBorderImage.h
 	include/declarative/WDeclarativeBorderImage_p.h
@@ -107,9 +108,9 @@ set( HPP
 	include/declarative/WDeclarativeItem
 	include/declarative/WDeclarativeItem.h
 	include/declarative/WDeclarativeItem_p.h
-	# include/declarative/WDeclarativeListView
-	# include/declarative/WDeclarativeListView.h
-	# include/declarative/WDeclarativeListView_p.h
+	include/declarative/WDeclarativeListView
+	include/declarative/WDeclarativeListView.h
+	include/declarative/WDeclarativeListView_p.h
 	include/declarative/WDeclarativeMouseArea
 	include/declarative/WDeclarativeMouseArea.h
 	include/declarative/WDeclarativeMouseArea_p.h
@@ -236,14 +237,14 @@ set( HPP
 	include/private/declarative/WDeclarativeBorderImage_p.h
 	include/private/declarative/WDeclarativeImageBase_p
 	include/private/declarative/WDeclarativeImageBase_p.h
-	# include/private/declarative/WDeclarativeImageSvg_p
-	# include/private/declarative/WDeclarativeImageSvg_p.h
+	include/private/declarative/WDeclarativeImageSvg_p
+	include/private/declarative/WDeclarativeImageSvg_p.h
 	include/private/declarative/WDeclarativeImage_p
 	include/private/declarative/WDeclarativeImage_p.h
 	include/private/declarative/WDeclarativeItem_p
 	include/private/declarative/WDeclarativeItem_p.h
-	# include/private/declarative/WDeclarativeListView_p
-	# include/private/declarative/WDeclarativeListView_p.h
+	include/private/declarative/WDeclarativeListView_p
+	include/private/declarative/WDeclarativeListView_p.h
 	include/private/declarative/WDeclarativeMouseArea_p
 	include/private/declarative/WDeclarativeMouseArea_p.h
 	# include/private/declarative/WDeclarativeMouseWatcher_p
