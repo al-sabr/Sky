@@ -44,7 +44,7 @@ class WLoaderNetwork;
 // WRemoteParameters
 //-------------------------------------------------------------------------------------------------
 
-struct WRemoteParameters
+struct SKY_CORE_EXPORT WRemoteParameters
 {
     WRemoteParameters()
     {

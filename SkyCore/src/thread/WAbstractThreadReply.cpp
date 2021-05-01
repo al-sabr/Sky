@@ -38,7 +38,7 @@
 // WAbstractThreadReplyEvent
 //=================================================================================================
 
-class WAbstractThreadReplyEvent : public QEvent
+class SKY_CORE_EXPORT WAbstractThreadReplyEvent : public QEvent
 {
 public:
     WAbstractThreadReplyEvent(WAbstractThreadAction * action, bool ok) : QEvent(QEvent::User)

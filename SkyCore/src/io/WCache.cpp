@@ -50,7 +50,7 @@ static const int CACHE_INTERVAL = 1000;
 // WCacheJob
 //=================================================================================================
 
-struct WCacheJob
+struct SKY_CORE_EXPORT WCacheJob
 {
     int id;
 
@@ -70,7 +70,7 @@ struct WCacheJob
 // WCacheData
 //=================================================================================================
 
-struct WCacheData
+struct SKY_CORE_EXPORT WCacheData
 {
     int id;
 

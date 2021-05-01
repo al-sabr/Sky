@@ -32,7 +32,6 @@
 #include <WAbstractThreadAction>
 #include <WAbstractThreadReply>
 #include <SkyCoreExports.h>
-#include <3rdparty/qtsingleapplication/qtlockedfile.h>
 
 #ifndef SK_NO_CONTROLLERFILE
 
@@ -236,7 +235,7 @@ public: // Static functions
     //---------------------------------------------------------------------------------------------
     // Files
 
-    static bool tryUnlock(const QtLockedFile & file,
+    static bool tryUnlock(const QtLP_Private::QtLockedFile & file,
                           int                                timeout = 10000); // 10 seconds
 
     static QByteArray readFile(const QString & fileName);
