@@ -1,12 +1,13 @@
 # Reminder setup for successful compilation #1
 # Reminder setup for successful compilation #2
 # Reminder setup for successful compilation #3
+# Reminder setup for successful compilation #4
 
 set(CPP
 	src/3rdparty/qtsingleapplication/qtsingleapplication.cpp
 	
-	#src/controllers/WControllerPlaylist.cpp
-	# src/controllers/WControllerView.cpp
+	# src/controllers/WControllerPlaylist.cpp
+	src/controllers/WControllerView.cpp
 	
 	# src/declarative/WDeclarativeAnimated.cpp
 	# src/declarative/WDeclarativeApplication.cpp
@@ -16,17 +17,17 @@ set(CPP
 	# src/declarative/WDeclarativeImage.cpp
 	# src/declarative/WDeclarativeImageBase.cpp
 	# src/declarative/WDeclarativeImageSvg.cpp
-	# src/declarative/WDeclarativeItem.cpp
+	src/declarative/WDeclarativeItem.cpp
 	# src/declarative/WDeclarativeListView.cpp
-	# src/declarative/WDeclarativeMouseArea.cpp
+	src/declarative/WDeclarativeMouseArea.cpp
 	# src/declarative/WDeclarativeMouseWatcher.cpp
 	# src/declarative/WDeclarativePlayer.cpp
 	# src/declarative/WDeclarativeText.cpp
 	# src/declarative/WDeclarativeTextSvg.cpp
 	
 	src/graphicsview/WAbstractView.cpp
-	# src/graphicsview/WResizer.cpp
-	# src/graphicsview/WView.cpp
+	src/graphicsview/WResizer.cpp
+	src/graphicsview/WView.cpp
 	# src/graphicsview/WViewDrag.cpp
 	# src/graphicsview/WViewResizer.cpp
 	# src/graphicsview/WWindow.cpp
@@ -80,9 +81,9 @@ set( HPP
 	# include/controllers/WControllerPlaylist
 	# include/controllers/WControllerPlaylist.h
 	# include/controllers/WControllerPlaylist_p.h
-	# include/controllers/WControllerView
-	# include/controllers/WControllerView.h
-	# include/controllers/WControllerView_p.h
+	include/controllers/WControllerView
+	include/controllers/WControllerView.h
+	include/controllers/WControllerView_p.h
 	
 	# include/declarative/WDeclarativeAnimated
 	# include/declarative/WDeclarativeAnimated.h
@@ -105,15 +106,15 @@ set( HPP
 	# include/declarative/WDeclarativeImageSvg.h
 	# include/declarative/WDeclarativeImageSvg_p.h
 	# include/declarative/WDeclarativeImage_p.h
-	# include/declarative/WDeclarativeItem
-	# include/declarative/WDeclarativeItem.h
-	# include/declarative/WDeclarativeItem_p.h
+	include/declarative/WDeclarativeItem
+	include/declarative/WDeclarativeItem.h
+	include/declarative/WDeclarativeItem_p.h
 	# include/declarative/WDeclarativeListView
 	# include/declarative/WDeclarativeListView.h
 	# include/declarative/WDeclarativeListView_p.h
-	# include/declarative/WDeclarativeMouseArea
-	# include/declarative/WDeclarativeMouseArea.h
-	# include/declarative/WDeclarativeMouseArea_p.h
+	include/declarative/WDeclarativeMouseArea
+	include/declarative/WDeclarativeMouseArea.h
+	include/declarative/WDeclarativeMouseArea_p.h
 	# include/declarative/WDeclarativeMouseWatcher
 	# include/declarative/WDeclarativeMouseWatcher.h
 	# include/declarative/WDeclarativeMouseWatcher_p.h
@@ -129,11 +130,11 @@ set( HPP
 	include/graphicsview/WAbstractView
 	include/graphicsview/WAbstractView.h
 	include/graphicsview/WAbstractView_p.h
-	# include/graphicsview/WResizer
-	# include/graphicsview/WResizer.h
-	# include/graphicsview/WResizer_p.h
-	# include/graphicsview/WView
-	# include/graphicsview/WView.h
+	include/graphicsview/WResizer
+	include/graphicsview/WResizer.h
+	include/graphicsview/WResizer_p.h
+	include/graphicsview/WView
+	include/graphicsview/WView.h
 	# include/graphicsview/WViewDrag
 	# include/graphicsview/WViewDrag.h
 	# include/graphicsview/WViewResizer
@@ -228,8 +229,8 @@ set( HPP
 	
 	# include/private/controllers/WControllerPlaylist_p
 	# include/private/controllers/WControllerPlaylist_p.h
-	# include/private/controllers/WControllerView_p
-	# include/private/controllers/WControllerView_p.h
+	include/private/controllers/WControllerView_p
+	include/private/controllers/WControllerView_p.h
 	
 	# include/private/declarative/WDeclarativeAnimated_p
 	# include/private/declarative/WDeclarativeAnimated_p.h
@@ -241,12 +242,12 @@ set( HPP
 	# include/private/declarative/WDeclarativeImageSvg_p.h
 	# include/private/declarative/WDeclarativeImage_p
 	# include/private/declarative/WDeclarativeImage_p.h
-	# include/private/declarative/WDeclarativeItem_p
-	# include/private/declarative/WDeclarativeItem_p.h
+	include/private/declarative/WDeclarativeItem_p
+	include/private/declarative/WDeclarativeItem_p.h
 	# include/private/declarative/WDeclarativeListView_p
 	# include/private/declarative/WDeclarativeListView_p.h
-	# include/private/declarative/WDeclarativeMouseArea_p
-	# include/private/declarative/WDeclarativeMouseArea_p.h
+	include/private/declarative/WDeclarativeMouseArea_p
+	include/private/declarative/WDeclarativeMouseArea_p.h
 	# include/private/declarative/WDeclarativeMouseWatcher_p
 	# include/private/declarative/WDeclarativeMouseWatcher_p.h
 	# include/private/declarative/WDeclarativePlayer_p
@@ -256,10 +257,10 @@ set( HPP
 	
 	include/private/graphicsview/WAbstractView_p
 	include/private/graphicsview/WAbstractView_p.h
-	# include/private/graphicsview/WResizer_p
-	# include/private/graphicsview/WResizer_p.h
-	# include/private/graphicsview/WView_p
-	# include/private/graphicsview/WView_p.h
+	include/private/graphicsview/WResizer_p
+	include/private/graphicsview/WResizer_p.h
+	include/private/graphicsview/WView_p
+	include/private/graphicsview/WView_p.h
 	# include/private/graphicsview/WWindow_p
 	# include/private/graphicsview/WWindow_p.h
 	
