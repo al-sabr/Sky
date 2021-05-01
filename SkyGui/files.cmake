@@ -5,6 +5,7 @@
 # Reminder setup for successful compilation #5
 # Reminder setup for successful compilation #6
 # Reminder setup for successful compilation #7
+# Reminder setup for successful compilation #8
 
 set(CPP
 	src/3rdparty/qtsingleapplication/qtsingleapplication.cpp
@@ -17,8 +18,8 @@ set(CPP
 	# src/declarative/WDeclarativeBorderImage.cpp
 	# src/declarative/WDeclarativeBorders.cpp
 	src/declarative/WDeclarativeContextualPage.cpp
-	# src/declarative/WDeclarativeImage.cpp
-	# src/declarative/WDeclarativeImageBase.cpp
+	src/declarative/WDeclarativeImage.cpp
+	src/declarative/WDeclarativeImageBase.cpp
 	# src/declarative/WDeclarativeImageSvg.cpp
 	src/declarative/WDeclarativeItem.cpp
 	# src/declarative/WDeclarativeListView.cpp
@@ -35,10 +36,10 @@ set(CPP
 	src/graphicsview/WViewResizer.cpp
 	src/graphicsview/WWindow.cpp
 	
-	# src/image/WImageFilter.cpp
+	src/image/WImageFilter.cpp
 	# src/image/WImageFilterColor.cpp
 	# src/image/WImageFilterMask.cpp
-	# src/image/WPixmapCache.cpp
+	src/image/WPixmapCache.cpp
 	
 	# src/io/WBackendLoader.cpp
 	
@@ -70,11 +71,11 @@ set(CPP
 
 )
 
-if(QT_MAJOR_VERSION EQUAL 5)
-	# list(APPEND CPP
-	# 	src/declarative/WDeclarativeTexture.cpp
-	# 	src/declarative/WDeclarativeItemPaint.cpp
-	# )
+if(QT_DEFAULT_MAJOR_VERSION EQUAL 5)
+	list(APPEND CPP
+		src/declarative/WDeclarativeTexture.cpp
+		#src/declarative/WDeclarativeItemPaint.cpp
+	)
 endif()
 
 set( HPP
@@ -100,11 +101,11 @@ set( HPP
 	# include/declarative/WDeclarativeBorders.h
 	include/declarative/WDeclarativeContextualPage
 	include/declarative/WDeclarativeContextualPage.h
-	# include/declarative/WDeclarativeImage
-	# include/declarative/WDeclarativeImage.h
-	# include/declarative/WDeclarativeImageBase
-	# include/declarative/WDeclarativeImageBase.h
-	# include/declarative/WDeclarativeImageBase_p.h
+	include/declarative/WDeclarativeImage
+	include/declarative/WDeclarativeImage.h
+	include/declarative/WDeclarativeImageBase
+	include/declarative/WDeclarativeImageBase.h
+	include/declarative/WDeclarativeImageBase_p.h
 	# include/declarative/WDeclarativeImageSvg
 	# include/declarative/WDeclarativeImageSvg.h
 	# include/declarative/WDeclarativeImageSvg_p.h
@@ -147,15 +148,15 @@ set( HPP
 	include/graphicsview/WWindow.h
 	include/graphicsview/WWindow_p.h
 	
-	# include/image/WImageFilter
-	# include/image/WImageFilter.h
+	include/image/WImageFilter
+	include/image/WImageFilter.h
 	# include/image/WImageFilterColor
 	# include/image/WImageFilterColor.h
 	# include/image/WImageFilterMask
 	# include/image/WImageFilterMask.h
 	# include/image/WImageFilter_p.h
-	# include/image/WPixmapCache
-	# include/image/WPixmapCache.h
+	include/image/WPixmapCache
+	include/image/WPixmapCache.h
 	
 	# include/io/WBackendLoader
 	# include/io/WBackendLoader.h
@@ -239,12 +240,12 @@ set( HPP
 	# include/private/declarative/WDeclarativeAnimated_p.h
 	# include/private/declarative/WDeclarativeBorderImage_p
 	# include/private/declarative/WDeclarativeBorderImage_p.h
-	# include/private/declarative/WDeclarativeImageBase_p
-	# include/private/declarative/WDeclarativeImageBase_p.h
+	include/private/declarative/WDeclarativeImageBase_p
+	include/private/declarative/WDeclarativeImageBase_p.h
 	# include/private/declarative/WDeclarativeImageSvg_p
 	# include/private/declarative/WDeclarativeImageSvg_p.h
-	# include/private/declarative/WDeclarativeImage_p
-	# include/private/declarative/WDeclarativeImage_p.h
+	include/private/declarative/WDeclarativeImage_p
+	include/private/declarative/WDeclarativeImage_p.h
 	include/private/declarative/WDeclarativeItem_p
 	include/private/declarative/WDeclarativeItem_p.h
 	# include/private/declarative/WDeclarativeListView_p
@@ -267,8 +268,8 @@ set( HPP
 	include/private/graphicsview/WWindow_p
 	include/private/graphicsview/WWindow_p.h
 	
-	# include/private/image/WImageFilter_p
-	# include/private/image/WImageFilter_p.h
+	include/private/image/WImageFilter_p
+	include/private/image/WImageFilter_p.h
 	
 	# include/private/io/WBackendLoader_p
 	# include/private/io/WBackendLoader_p.h
@@ -312,7 +313,7 @@ set( HPP
 
 )
 
-if(QT_MAJOR_VERSION EQUAL 5)
+if(QT_DEFAULT_MAJOR_VERSION EQUAL 5)
 	list(APPEND HPP
 		# include/declarative/WDeclarativeItemPaint
 		# include/declarative/WDeclarativeItemPaint.h
@@ -321,12 +322,12 @@ if(QT_MAJOR_VERSION EQUAL 5)
 		# include/private/declarative/WDeclarativeItemPaint_p
 		# include/private/declarative/WDeclarativeItemPaint_p.h
 
-		# include/declarative/WDeclarativeTexture
-		# include/declarative/WDeclarativeTexture.h
-		# include/declarative/WDeclarativeTexture_p.h
+		include/declarative/WDeclarativeTexture
+		include/declarative/WDeclarativeTexture.h
+		include/declarative/WDeclarativeTexture_p.h
 		
-		# include/private/declarative/WDeclarativeTexture_p
-		# include/private/declarative/WDeclarativeTexture_p.h
+		include/private/declarative/WDeclarativeTexture_p
+		include/private/declarative/WDeclarativeTexture_p.h
 
 	)
 endif()
