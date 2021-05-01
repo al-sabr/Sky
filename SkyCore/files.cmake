@@ -1,5 +1,8 @@
 set(CPP
   src/3rdparty/qtsingleapplication/qtlockedfile.cpp
+  src/3rdparty/qtsingleapplication/qtlocalpeer.cpp
+
+  src/global/Sk_p.cpp
 
   src/controllers/WController.cpp
   src/controllers/WControllerApplication.cpp
@@ -12,8 +15,6 @@ set(CPP
   src/controllers/WControllerScript.cpp
 
   src/controllers/WControllerXml.cpp
-
-  src/global/Sk_p.cpp
 
   src/kernel/WCoreApplication.cpp
   src/kernel/WCrypter.cpp
@@ -36,10 +37,21 @@ set(CPP
   src/thread/WAbstractThreadReply.cpp
   src/thread/WThreadActions.cpp
 )
-
+#[[
+if(WIN32)
+  list(APPEND CPP src/3rdparty/qtsingleapplication/qtlockedfile_win.cpp)
+else()
+  list(APPEND CPP src/3rdparty/qtsingleapplication/qtlockedfile_unix.cpp)
+endif()
+]]
 set( HPP
   include/3rdparty/qtsingleapplication/QtLockedFile
   include/3rdparty/qtsingleapplication/qtlockedfile.h
+  include/3rdparty/qtsingleapplication/qtlocalpeer.h
+
+  include/global/Sk
+  include/global/Sk.h
+  include/global/Sk_p.h
 
   include/controllers/WController
   include/controllers/WController_p.h
@@ -80,10 +92,6 @@ set( HPP
   include/private/controllers/WControllerNetwork_p.h
   include/private/controllers/WController_p
   include/private/controllers/WController_p.h
-
-  include/global/Sk
-  include/global/Sk.h
-  include/global/Sk_p.h
 
   include/io/WAbstractLoader
   include/io/WAbstractLoader.h

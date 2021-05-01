@@ -70,9 +70,7 @@
 
 // Sk includes
 #include <Sk>
-#include <SkyCoreExports.h>
 
-/*
 #if defined(Q_OS_WIN)
 #  if !defined(QT_QTLOCKEDFILE_EXPORT) && !defined(QT_QTLOCKEDFILE_IMPORT)
 #    define QT_QTLOCKEDFILE_EXPORT
@@ -88,11 +86,10 @@
 #else
 #  define QT_QTLOCKEDFILE_EXPORT
 #endif
-*/
 
-namespace QtLP_Private {
+namespace QtLP_Private{
     
-    class SKY_CORE_EXPORT QtLockedFile : public QFile
+    class QT_QTLOCKEDFILE_EXPORT QtLockedFile : public QFile
     {
     public:
         enum LockMode { NoLock = 0, ReadLock, WriteLock };

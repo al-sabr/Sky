@@ -75,7 +75,7 @@ set(target_folders_private
 include_directories(${target_folders_public} ${target_folders_private})
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_public})
-target_include_directories(${PROJECT_NAME} PRIVATE ${target_folders_private})
+target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_private})
 
 #set_property(SOURCE WControllerFile.moc PROPERTY SKIP_AUTOMOC ON)
 #set_property(SOURCE src/controllers/WControllerFile.cpp PROPERTY SKIP_AUTOGEN ON)
@@ -83,9 +83,14 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${target_folders_private})
 #target_include_directories(${PROJECT_NAME} PUBLIC include)
 #target_include_directories(${PROJECT_NAME} PRIVATE include/private)
 
-add_definitions(-DQT_${QT_DEFAULT_MAJOR_VERSION} -DQT_LATEST -DSK_NO_SCRIPT -DQT_QTLOCKEDFILE_IMPORT)
+add_definitions(-DQT_${QT_DEFAULT_MAJOR_VERSION} -DQT_LATEST -DSK_NO_SCRIPT) #-DQT_QTLOCKEDFILE_IMPORT
 
 # -DSK_NO_UNZIPPER -DSK_NO_CONTROLLERFILE -DSK_NO_CACHE -DSK_NO_FILEWATCHER -DSK_NO_ABSTRACTLOADER -DSK_NO_LOADERNETWORK -DSK_NO_CONTROLLERDOWNLOAD -DSK_NO_CONTROLLERPLUGIN  -DSK_NO_YAMLREADER -DSK_NO_PLUGIN -DSK_NO_COOKIEJAR
+
+if(WIN32)
+  add_definitions(-DSKY_WIN_NATIVE -D_UNICODE -DUNICODE)
+  target_compile_definitions (${PROJECT_NAME} PRIVATE -D_UNICODE -DUNICODE)
+endif()
 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_11)
 
