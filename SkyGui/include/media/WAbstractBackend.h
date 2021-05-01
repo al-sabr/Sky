@@ -45,8 +45,8 @@ class WAbstractBackendPrivate;
 class WDeclarativePlayer;
 class WBackendFilter;
 #ifdef QT_LATEST
-struct SKY_GUI_EXPORT WBackendFrame;
-struct SKY_GUI_EXPORT WBackendTexture;
+struct WBackendFrame;
+struct WBackendTexture;
 #endif
 
 
