@@ -1,4 +1,6 @@
 # Reminder setup for successful compilation #1
+# Reminder setup for successful compilation #2
+# Reminder setup for successful compilation #3
 
 set(CPP
 	src/3rdparty/qtsingleapplication/qtsingleapplication.cpp
@@ -22,7 +24,7 @@ set(CPP
 	# src/declarative/WDeclarativeText.cpp
 	# src/declarative/WDeclarativeTextSvg.cpp
 	
-	# src/graphicsview/WAbstractView.cpp
+	src/graphicsview/WAbstractView.cpp
 	# src/graphicsview/WResizer.cpp
 	# src/graphicsview/WView.cpp
 	# src/graphicsview/WViewDrag.cpp
@@ -124,9 +126,9 @@ set( HPP
 	# include/declarative/WDeclarativeTextSvg.h
 	# include/declarative/WDeclarativeTextSvg_p.h
 	
-	# include/graphicsview/WAbstractView
-	# include/graphicsview/WAbstractView.h
-	# include/graphicsview/WAbstractView_p.h
+	include/graphicsview/WAbstractView
+	include/graphicsview/WAbstractView.h
+	include/graphicsview/WAbstractView_p.h
 	# include/graphicsview/WResizer
 	# include/graphicsview/WResizer.h
 	# include/graphicsview/WResizer_p.h
@@ -252,8 +254,8 @@ set( HPP
 	# include/private/declarative/WDeclarativeTextSvg_p
 	# include/private/declarative/WDeclarativeTextSvg_p.h
 	
-	# include/private/graphicsview/WAbstractView_p
-	# include/private/graphicsview/WAbstractView_p.h
+	include/private/graphicsview/WAbstractView_p
+	include/private/graphicsview/WAbstractView_p.h
 	# include/private/graphicsview/WResizer_p
 	# include/private/graphicsview/WResizer_p.h
 	# include/private/graphicsview/WView_p
