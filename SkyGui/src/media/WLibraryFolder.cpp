@@ -117,7 +117,7 @@ bool WLibraryFolderItem::isOnline() const
 // WLibraryFolderWrite and WLibraryFolderWriteReply
 //=================================================================================================
 
-class WLibraryFolderWrite : public WAbstractThreadAction
+class SKY_GUI_EXPORT WLibraryFolderWrite : public WAbstractThreadAction
 {
     Q_OBJECT
 
@@ -162,7 +162,7 @@ public: // Variables
 
 //-------------------------------------------------------------------------------------------------
 
-class WLibraryFolderWriteReply : public WAbstractThreadReply
+class SKY_GUI_EXPORT WLibraryFolderWriteReply : public WAbstractThreadReply
 {
     Q_OBJECT
 
@@ -268,7 +268,7 @@ public: // Variables
 
 class WLibraryFolderReadReply;
 
-class WLibraryFolderRead : public WAbstractThreadAction
+class SKY_GUI_EXPORT WLibraryFolderRead : public WAbstractThreadAction
 {
     Q_OBJECT
 
@@ -296,7 +296,7 @@ public: // Variables
 
 //-------------------------------------------------------------------------------------------------
 
-class WLibraryFolderReadReply : public WAbstractThreadReply
+class SKY_GUI_EXPORT WLibraryFolderReadReply : public WAbstractThreadReply
 {
     Q_OBJECT
 

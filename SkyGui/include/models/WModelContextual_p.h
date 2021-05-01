@@ -24,13 +24,14 @@
 #define WMODELCONTEXTUAL_P_H
 
 #include <private/Sk_p>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_MODELCONTEXTUAL
 
 // Forward declarations
 class WModelContextualBase;
 
-class WModelContextualPrivate : public WPrivate
+class SKY_GUI_EXPORT WModelContextualPrivate : public WPrivate
 {
 public:
     WModelContextualPrivate(WModelContextual * p);

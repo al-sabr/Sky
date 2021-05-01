@@ -123,7 +123,7 @@ inline uint qHash(const WPixmapCacheKey & key)
 // WPixmapCacheImageRead and WPixmapCacheImageReply
 //=================================================================================================
 
-class WPixmapCacheImageRead : public WAbstractThreadAction
+class SKY_GUI_EXPORT WPixmapCacheImageRead : public WAbstractThreadAction
 {
     Q_OBJECT
 
@@ -151,7 +151,7 @@ public: // Variables
 
 //-------------------------------------------------------------------------------------------------
 
-class WPixmapCacheImageReply : public WAbstractThreadReply
+class SKY_GUI_EXPORT WPixmapCacheImageReply : public WAbstractThreadReply
 {
     Q_OBJECT
 
@@ -199,7 +199,7 @@ public: // Variables
 class WPixmapCachePrivate;
 class WPixmapCacheData;
 
-class WPixmapCacheRead : public WAbstractThreadAction
+class SKY_GUI_EXPORT WPixmapCacheRead : public WAbstractThreadAction
 {
     Q_OBJECT
 
@@ -235,7 +235,7 @@ public: // Variables
 
 //-------------------------------------------------------------------------------------------------
 
-class WPixmapCacheReply : public WAbstractThreadReply
+class SKY_GUI_EXPORT WPixmapCacheReply : public WAbstractThreadReply
 {
     Q_OBJECT
 
@@ -306,7 +306,7 @@ Q_GLOBAL_STATIC(WPixmapCacheDataNull, dataNull)
 // WPixmapCacheStore
 //=================================================================================================
 
-class WPixmapCacheStore : public QObject
+class SKY_GUI_EXPORT WPixmapCacheStore : public QObject
 {
     Q_OBJECT
 

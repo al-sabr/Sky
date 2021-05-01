@@ -47,7 +47,7 @@ struct SKY_GUI_EXPORT WTabsTrackDataTab{
     int id;
 };
 
-class WTabsTrackWrite : public WAbstractThreadAction
+class SKY_GUI_EXPORT WTabsTrackWrite : public WAbstractThreadAction
 {
     Q_OBJECT
 
@@ -81,7 +81,7 @@ public: // Variables
 
 //-------------------------------------------------------------------------------------------------
 
-class WTabsTrackWriteReply : public WAbstractThreadReply
+class SKY_GUI_EXPORT WTabsTrackWriteReply : public WAbstractThreadReply
 {
     Q_OBJECT
 
@@ -164,7 +164,7 @@ public: // Variables
 
 class WTabsTrackReadReply;
 
-class WTabsTrackRead : public WAbstractThreadAction
+class SKY_GUI_EXPORT WTabsTrackRead : public WAbstractThreadAction
 {
     Q_OBJECT
 
@@ -189,7 +189,7 @@ public: // Variables
     QString path;
 };
 
-class WTabsTrackReadReply : public WAbstractThreadReply
+class SKY_GUI_EXPORT WTabsTrackReadReply : public WAbstractThreadReply
 {
     Q_OBJECT
 

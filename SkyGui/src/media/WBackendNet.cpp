@@ -281,7 +281,7 @@ WNetReplyItem::WNetReplyItem(QIODevice * device, const WBackendNetQuery & query)
 // WBackendNetInterface
 //=================================================================================================
 
-class WBackendNetInterface : public QObject
+class SKY_GUI_EXPORT WBackendNetInterface : public QObject
 {
     Q_OBJECT
 

@@ -31,7 +31,7 @@
 // WModelContextualBase
 //=================================================================================================
 
-class WModelContextualBase : public QAbstractListModel
+class SKY_GUI_EXPORT WModelContextualBase : public QAbstractListModel
 {
     Q_OBJECT
 

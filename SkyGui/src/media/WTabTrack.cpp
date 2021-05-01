@@ -55,7 +55,7 @@ static const int TABTRACK_MAX = 8;
 // WTabTrackWrite and WTabTrackWriteReply
 //=================================================================================================
 
-class WTabTrackWrite : public WAbstractThreadAction
+class SKY_GUI_EXPORT WTabTrackWrite : public WAbstractThreadAction
 {
     Q_OBJECT
 
@@ -91,7 +91,7 @@ public: // Variables
 
 //-------------------------------------------------------------------------------------------------
 
-class WTabTrackWriteReply : public WAbstractThreadReply
+class SKY_GUI_EXPORT WTabTrackWriteReply : public WAbstractThreadReply
 {
     Q_OBJECT
 
@@ -249,7 +249,7 @@ public: // Variables
 
 class WTabTrackReadReply;
 
-class WTabTrackRead : public WAbstractThreadAction
+class SKY_GUI_EXPORT WTabTrackRead : public WAbstractThreadAction
 {
     Q_OBJECT
 
@@ -274,7 +274,7 @@ public: // Variables
     QString path;
 };
 
-class WTabTrackReadReply : public WAbstractThreadReply
+class SKY_GUI_EXPORT WTabTrackReadReply : public WAbstractThreadReply
 {
     Q_OBJECT
 

@@ -97,7 +97,7 @@ struct SKY_GUI_EXPORT WThreadActionDataTrack{
     WAbstractBackend::Quality quality;
 };
 
-class WPlaylistWrite : public WAbstractThreadAction
+class SKY_GUI_EXPORT WPlaylistWrite : public WAbstractThreadAction
 {
     Q_OBJECT
 
@@ -141,7 +141,7 @@ public: // Variables
 
 //-------------------------------------------------------------------------------------------------
 
-class WPlaylistWriteReply : public WAbstractThreadReply
+class SKY_GUI_EXPORT WPlaylistWriteReply : public WAbstractThreadReply
 {
     Q_OBJECT
 
@@ -250,7 +250,7 @@ public: // Variables
 
 class WPlaylistReadReply;
 
-class WPlaylistRead : public WAbstractThreadAction
+class SKY_GUI_EXPORT WPlaylistRead : public WAbstractThreadAction
 {
     Q_OBJECT
 
@@ -278,7 +278,7 @@ public: // Variables
 
 //-------------------------------------------------------------------------------------------------
 
-class WPlaylistReadReply : public WAbstractThreadReply
+class SKY_GUI_EXPORT WPlaylistReadReply : public WAbstractThreadReply
 {
     Q_OBJECT
 

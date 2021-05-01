@@ -528,7 +528,7 @@ QString WControllerPlaylistData::generateTitle(const QString & url, const QStrin
 // WControllerPlaylistReply
 //=================================================================================================
 
-class WControllerPlaylistReply : public QObject
+class SKY_GUI_EXPORT WControllerPlaylistReply : public QObject
 {
     Q_OBJECT
 

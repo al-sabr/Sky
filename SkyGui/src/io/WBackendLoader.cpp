@@ -39,7 +39,7 @@ static const int BACKENDLOADER_MAX = 50;
 // WBackendLoaderCache
 //=================================================================================================
 
-class WBackendLoaderCache
+class SKY_GUI_EXPORT WBackendLoaderCache
 {
 public:
     WBackendLoaderCache();

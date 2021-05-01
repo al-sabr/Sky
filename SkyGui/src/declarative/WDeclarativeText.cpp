@@ -60,7 +60,7 @@
 // WTextDocumentWithImageResources
 //=================================================================================================
 
-class WTextDocumentWithImageResources : public QTextDocument
+class SKY_GUI_EXPORT WTextDocumentWithImageResources : public QTextDocument
 {
     Q_OBJECT
 

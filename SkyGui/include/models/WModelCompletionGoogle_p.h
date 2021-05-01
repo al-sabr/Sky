@@ -35,7 +35,7 @@
 
 #ifndef SK_NO_MODELCOMPLETIONGOOGLE
 
-class WModelCompletionGooglePrivate : public WPrivate
+class SKY_GUI_EXPORT WModelCompletionGooglePrivate : public WPrivate
 {
 public:
     WModelCompletionGooglePrivate(WModelCompletionGoogle * p);
