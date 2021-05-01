@@ -1,4 +1,5 @@
 # Reminder setup for successful compilation #15
+# Reminder setup for successful compilation #16
 
 set(CPP
 	src/3rdparty/qtsingleapplication/qtsingleapplication.cpp
@@ -19,7 +20,7 @@ set(CPP
 	src/declarative/WDeclarativeMouseArea.cpp
 	src/declarative/WDeclarativeMouseWatcher.cpp
 	src/declarative/WDeclarativePlayer.cpp
-	# src/declarative/WDeclarativeText.cpp
+	src/declarative/WDeclarativeText.cpp
 	# src/declarative/WDeclarativeTextSvg.cpp
 	
 	src/graphicsview/WAbstractView.cpp
@@ -118,8 +119,8 @@ set( HPP
 	include/declarative/WDeclarativePlayer
 	include/declarative/WDeclarativePlayer.h
 	include/declarative/WDeclarativePlayer_p.h
-	# include/declarative/WDeclarativeText
-	# include/declarative/WDeclarativeText.h
+	include/declarative/WDeclarativeText
+	include/declarative/WDeclarativeText.h
 	# include/declarative/WDeclarativeTextSvg
 	# include/declarative/WDeclarativeTextSvg.h
 	# include/declarative/WDeclarativeTextSvg_p.h
