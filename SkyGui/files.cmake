@@ -8,6 +8,7 @@
 # Reminder setup for successful compilation #22
 # Reminder setup for successful compilation #23
 # Reminder setup for successful compilation #24
+# Reminder setup for successful compilation #25
 
 set(CPP
 	src/3rdparty/qtsingleapplication/qtsingleapplication.cpp
@@ -24,7 +25,6 @@ set(CPP
 	src/declarative/WDeclarativeImageBase.cpp
 	src/declarative/WDeclarativeImageSvg.cpp
 	src/declarative/WDeclarativeItem.cpp
-	src/declarative/WDeclarativeItemPaint.cpp
 	src/declarative/WDeclarativeListView.cpp
 	src/declarative/WDeclarativeMouseArea.cpp
 	src/declarative/WDeclarativeMouseWatcher.cpp
@@ -70,14 +70,14 @@ set(CPP
 	src/models/WModelList.cpp
 	src/models/WModelPlaylist.cpp
 	src/models/WModelRange.cpp
-	# src/models/WModelTabs.cpp
+	src/models/WModelTabs.cpp
 
 )
 
 if(QT_DEFAULT_MAJOR_VERSION EQUAL 5)
 	list(APPEND CPP
 		src/declarative/WDeclarativeTexture.cpp
-		#src/declarative/WDeclarativeItemPaint.cpp
+		src/declarative/WDeclarativeItemPaint.cpp
 	)
 endif()
 
@@ -231,8 +231,8 @@ set( HPP
 	include/models/WModelPlaylist_p.h
 	include/models/WModelRange
 	include/models/WModelRange.h
-	# include/models/WModelTabs
-	# include/models/WModelTabs.h
+	include/models/WModelTabs
+	include/models/WModelTabs.h
 	
 	# include/private/controllers/WControllerPlaylist_p
 	# include/private/controllers/WControllerPlaylist_p.h
