@@ -67,7 +67,6 @@
 
 // Sk includes
 #include <Sk>
-#include <SkyGuiExports.h>
 
 class QtLocalPeer;
 
@@ -87,7 +86,7 @@ class QtLocalPeer;
 #  define QT_QTSINGLEAPPLICATION_EXPORT
 #endif
 
-class SKY_GUI_EXPORT QtSingleApplication : public QApplication
+class QT_QTSINGLEAPPLICATION_EXPORT QtSingleApplication : public QApplication
 {
     Q_OBJECT
 
