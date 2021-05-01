@@ -45,7 +45,7 @@ class WBackendLoader;
 // WControllerPlaylistQuery
 //-------------------------------------------------------------------------------------------------
 
-class SKY_GUI_EXPORT WControllerPlaylistQuery{
+class WControllerPlaylistQuery{
 public: // Enums
     enum Type
     {

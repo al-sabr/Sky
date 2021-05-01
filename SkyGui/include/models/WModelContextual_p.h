@@ -31,7 +31,7 @@
 // Forward declarations
 class WModelContextualBase;
 
-class SKY_GUI_EXPORT WModelContextualPrivate : public WPrivate
+class WModelContextualPrivate : public WPrivate
 {
 public:
     WModelContextualPrivate(WModelContextual * p);
