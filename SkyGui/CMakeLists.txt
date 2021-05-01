@@ -21,20 +21,20 @@ find_package(Qt5 COMPONENTS
 
 include(files.cmake)
 
-set(SkyCore_TARGET_LIBRARIES)
+set(SkyGui_TARGET_LIBRARIES)
 
 if(QT_DEFAULT_MAJOR_VERSION GREATER 4)
   message("QT_DEFAULT_MAJOR_VERSION = ${QT_DEFAULT_MAJOR_VERSION}")
-  list(APPEND SkyCore_TARGET_LIBRARIES
+  list(APPEND SkyGui_TARGET_LIBRARIES
     Qt5::Core Qt5::Gui Qt5::Widgets Qt5::WidgetsPrivate Qt5::Qml
     Qt5::Quick Qt5::QuickPrivate Qt5::Svg)
-  message("SkyCore_TARGET_LIBRARIES = ${SkyCore_TARGET_LIBRARIES}")
+  message("SkyGui_TARGET_LIBRARIES = ${SkyGui_TARGET_LIBRARIES}")
 else()
-  list(APPEND SkyCore_TARGET_LIBRARIES QT_LIBRARIES)
+  list(APPEND SkyGui_TARGET_LIBRARIES QT_LIBRARIES)
 endif()
 
 if(WIN32)
-  list(APPEND SkyCore_TARGET_LIBRARIES Qt5::WinExtras Qt5::WinExtrasPrivate)
+  list(APPEND SkyGui_TARGET_LIBRARIES Qt5::WinExtras Qt5::WinExtrasPrivate)
 endif()
 
 set(QT_USE_QTOPENGL TRUE)
@@ -53,7 +53,7 @@ message("")
 
 add_library(${PROJECT_NAME} SHARED ${CPP} ${HPP})
 
-target_link_libraries(${PROJECT_NAME} ${SkyCore_TARGET_LIBRARIES} SkyCore)
+target_link_libraries(${PROJECT_NAME} ${SkyGui_TARGET_LIBRARIES} SkyCore)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES VS_GLOBAL_VcpkgEnabled true)
 
@@ -88,7 +88,7 @@ include_directories(${target_folders_public} ${target_folders_private})
 target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_public})
 target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_private})
 
-add_definitions(-DQT_${QT_DEFAULT_MAJOR_VERSION} -DQT_LATEST -DQT_QTLOCKEDFILE_IMPORT)
+add_definitions(-DQT_${QT_DEFAULT_MAJOR_VERSION} -DQT_LATEST -DQT_QTLOCKEDFILE_IMPORT -DSKY_CORE_IMPORT) #-DQT_QTLOCKEDFILE_IMPORT
 
 if(WIN32)
   add_definitions(-DSKY_WIN_NATIVE -D_UNICODE -DUNICODE)
