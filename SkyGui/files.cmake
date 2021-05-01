@@ -4,6 +4,7 @@
 # Reminder setup for successful compilation #18
 # Reminder setup for successful compilation #19
 # Reminder setup for successful compilation #20
+# Reminder setup for successful compilation #21
 
 set(CPP
 	src/3rdparty/qtsingleapplication/qtsingleapplication.cpp
@@ -45,7 +46,7 @@ set(CPP
 	src/kernel/WAbstractTab.cpp
 	src/kernel/WAbstractTabs.cpp
 	src/kernel/WActionCue.cpp
-	# src/kernel/WApplication.cpp
+	src/kernel/WApplication.cpp
 	# src/kernel/WInputCue.cpp
 	
 	src/media/WAbstractBackend.cpp
@@ -170,8 +171,8 @@ set( HPP
 	include/kernel/WActionCue
 	include/kernel/WActionCue.h
 	include/kernel/WActionCue_p.h
-	# include/kernel/WApplication
-	# include/kernel/WApplication.h
+	include/kernel/WApplication
+	include/kernel/WApplication.h
 	# include/kernel/WInputCue
 	# include/kernel/WInputCue.h
 	# include/kernel/WInputCue_p.h
