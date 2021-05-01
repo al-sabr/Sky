@@ -1,5 +1,6 @@
 # Reminder setup for successful compilation #15
 # Reminder setup for successful compilation #16
+# Reminder setup for successful compilation #17
 
 set(CPP
 	src/3rdparty/qtsingleapplication/qtsingleapplication.cpp
@@ -21,7 +22,7 @@ set(CPP
 	src/declarative/WDeclarativeMouseWatcher.cpp
 	src/declarative/WDeclarativePlayer.cpp
 	src/declarative/WDeclarativeText.cpp
-	# src/declarative/WDeclarativeTextSvg.cpp
+	src/declarative/WDeclarativeTextSvg.cpp
 	
 	src/graphicsview/WAbstractView.cpp
 	src/graphicsview/WResizer.cpp
@@ -31,7 +32,7 @@ set(CPP
 	src/graphicsview/WWindow.cpp
 	
 	src/image/WImageFilter.cpp
-	# src/image/WImageFilterColor.cpp
+	src/image/WImageFilterColor.cpp
 	# src/image/WImageFilterMask.cpp
 	src/image/WPixmapCache.cpp
 	
@@ -121,9 +122,9 @@ set( HPP
 	include/declarative/WDeclarativePlayer_p.h
 	include/declarative/WDeclarativeText
 	include/declarative/WDeclarativeText.h
-	# include/declarative/WDeclarativeTextSvg
-	# include/declarative/WDeclarativeTextSvg.h
-	# include/declarative/WDeclarativeTextSvg_p.h
+	include/declarative/WDeclarativeTextSvg
+	include/declarative/WDeclarativeTextSvg.h
+	include/declarative/WDeclarativeTextSvg_p.h
 	
 	include/graphicsview/WAbstractView
 	include/graphicsview/WAbstractView.h
@@ -144,8 +145,8 @@ set( HPP
 	
 	include/image/WImageFilter
 	include/image/WImageFilter.h
-	# include/image/WImageFilterColor
-	# include/image/WImageFilterColor.h
+	include/image/WImageFilterColor
+	include/image/WImageFilterColor.h
 	# include/image/WImageFilterMask
 	# include/image/WImageFilterMask.h
 	# include/image/WImageFilter_p.h
@@ -250,8 +251,8 @@ set( HPP
 	include/private/declarative/WDeclarativeMouseWatcher_p.h
 	include/private/declarative/WDeclarativePlayer_p
 	include/private/declarative/WDeclarativePlayer_p.h
-	# include/private/declarative/WDeclarativeTextSvg_p
-	# include/private/declarative/WDeclarativeTextSvg_p.h
+	include/private/declarative/WDeclarativeTextSvg_p
+	include/private/declarative/WDeclarativeTextSvg_p.h
 	
 	include/private/graphicsview/WAbstractView_p
 	include/private/graphicsview/WAbstractView_p.h
