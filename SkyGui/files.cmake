@@ -1,6 +1,7 @@
 # Reminder setup for successful compilation #15
 # Reminder setup for successful compilation #16
 # Reminder setup for successful compilation #17
+# Reminder setup for successful compilation #18
 
 set(CPP
 	src/3rdparty/qtsingleapplication/qtsingleapplication.cpp
@@ -33,7 +34,7 @@ set(CPP
 	
 	src/image/WImageFilter.cpp
 	src/image/WImageFilterColor.cpp
-	# src/image/WImageFilterMask.cpp
+	src/image/WImageFilterMask.cpp
 	src/image/WPixmapCache.cpp
 	
 	src/io/WBackendLoader.cpp
@@ -145,11 +146,11 @@ set( HPP
 	
 	include/image/WImageFilter
 	include/image/WImageFilter.h
+	include/image/WImageFilter_p.h
 	include/image/WImageFilterColor
 	include/image/WImageFilterColor.h
-	# include/image/WImageFilterMask
-	# include/image/WImageFilterMask.h
-	# include/image/WImageFilter_p.h
+	include/image/WImageFilterMask
+	include/image/WImageFilterMask.h
 	include/image/WPixmapCache
 	include/image/WPixmapCache.h
 	
