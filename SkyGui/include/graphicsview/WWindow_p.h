@@ -34,6 +34,7 @@
 */
 
 #include <private/declarative/WDeclarativeMouseArea_p>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_WINDOW
 

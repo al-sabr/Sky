@@ -39,6 +39,7 @@
 
 // Sk includes
 #include <WListId>
+#include <SkyGuiExports.h>
 
 // Private includes
 #include <private/kernel/WAbstractTab_p>
@@ -49,8 +50,7 @@
 // WTabTrackDataBookmark
 //-------------------------------------------------------------------------------------------------
 
-struct WTabTrackDataBookmark
-{
+struct SKY_GUI_EXPORT WTabTrackDataBookmark{
     int id;
 
     QList<int> idPlaylist;

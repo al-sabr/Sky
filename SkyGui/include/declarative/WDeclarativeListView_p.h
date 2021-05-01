@@ -39,6 +39,7 @@
 
 // Private includes
 #include <private/declarative/WDeclarativeItem_p>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_DECLARATIVELISTVIEW
 
@@ -53,8 +54,7 @@ class QQuickItem;
 // WDeclarativeListItem
 //-------------------------------------------------------------------------------------------------
 
-class WDeclarativeListItem
-{
+class SKY_GUI_EXPORT WDeclarativeListItem{
 public:
     WDeclarativeListItem();
 

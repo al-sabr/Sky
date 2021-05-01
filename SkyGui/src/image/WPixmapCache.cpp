@@ -68,7 +68,7 @@ inline qint64 getPixmapSize(const QPixmap & pixmap)
 // WPixmapCacheKey
 //=================================================================================================
 
-struct WPixmapCacheKey
+struct SKY_GUI_EXPORT WPixmapCacheKey
 {
     const QString * path;
 
@@ -266,8 +266,7 @@ private:
 // WPixmapCacheData
 //=================================================================================================
 
-class WPixmapCacheData
-{
+class SKY_GUI_EXPORT WPixmapCacheData{
 public:
     ~WPixmapCacheData()
     {
@@ -293,7 +292,7 @@ public: // Variables
 // WPixmapCacheDataNull
 //=================================================================================================
 
-struct WPixmapCacheDataNull
+struct SKY_GUI_EXPORT WPixmapCacheDataNull
 {
     QString path;
     QSize   size;

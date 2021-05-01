@@ -39,6 +39,8 @@
 #endif
 #include <QTimer>
 
+#include <SkyGuiExports.h>
+
 // Private includes
 #ifdef QT_4
 #include <private/declarative/WDeclarativeItem_p>

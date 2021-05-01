@@ -26,6 +26,8 @@
 // Sk includes
 #include <WController>
 #include <WBackendNet>
+#include <SkyGuiExports.h>
+
 #ifdef QT_4
 #include <QStringList>
 #endif
@@ -45,7 +47,7 @@ class WRemoteData;
 // WControllerPlaylistSource
 //-------------------------------------------------------------------------------------------------
 
-struct WControllerPlaylistSource
+struct SKY_GUI_EXPORT WControllerPlaylistSource
 {
     QString url;
     QString title;
@@ -55,7 +57,7 @@ struct WControllerPlaylistSource
 // WControllerPlaylistMedia
 //-------------------------------------------------------------------------------------------------
 
-struct WControllerPlaylistMedia
+struct SKY_GUI_EXPORT WControllerPlaylistMedia
 {
     QString url;
     QString title;
@@ -67,7 +69,7 @@ struct WControllerPlaylistMedia
 // WControllerPlaylistSlice
 //-------------------------------------------------------------------------------------------------
 
-struct WControllerPlaylistSlice
+struct SKY_GUI_EXPORT WControllerPlaylistSlice
 {
     WControllerPlaylistSlice(const QString & start, const QString & end)
     {
@@ -122,7 +124,7 @@ public: // Variables
 // WControllerPlaylistItem
 //-------------------------------------------------------------------------------------------------
 
-struct WControllerPlaylistItem
+struct SKY_GUI_EXPORT WControllerPlaylistItem
 {
     QByteArray data;
 

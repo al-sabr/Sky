@@ -34,6 +34,7 @@
 */
 
 #include <private/declarative/WDeclarativeItem_p>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_DECLARATIVETEXTURE
 

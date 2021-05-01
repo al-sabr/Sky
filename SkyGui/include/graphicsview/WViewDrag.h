@@ -25,6 +25,7 @@
 
 // Sk includes
 #include <WDeclarativeMouseArea>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_VIEWDRAG
 

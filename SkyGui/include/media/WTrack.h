@@ -28,6 +28,7 @@
 
 // Sk includes
 #include <WAbstractBackend>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_TRACK
 

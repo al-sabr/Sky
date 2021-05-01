@@ -27,6 +27,8 @@
 #include <QTextOption>
 
 // Sk includes
+#include <SkyGuiExports.h>
+
 #ifdef QT_4
 #include <WDeclarativeItem>
 #else

@@ -33,6 +33,8 @@
     We mean it.
 */
 
+#include <SkyGuiExports.h>
+
 #ifdef SK_SOFTWARE
 #include <private/declarative/WDeclarativeItemPaint_p>
 #else

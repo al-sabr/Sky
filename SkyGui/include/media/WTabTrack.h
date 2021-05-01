@@ -26,6 +26,7 @@
 // Sk includes
 #include <WAbstractTab>
 #include <WBookmarkTrack>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_TABTRACK
 

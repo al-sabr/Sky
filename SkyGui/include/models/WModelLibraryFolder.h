@@ -25,6 +25,7 @@
 
 // Sk includes
 #include <WLibraryFolder>
+#include <SkyGuiExports.h>
 
 // Qt includes
 #include <QSortFilterProxyModel>

@@ -38,6 +38,7 @@
 
 // Private includes
 #include <private/declarative/WDeclarativeImageBase_p>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_DECLARATIVEBORDERIMAGE
 

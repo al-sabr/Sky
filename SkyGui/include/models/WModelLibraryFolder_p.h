@@ -24,6 +24,7 @@
 #define WMODELLIBRARY_P_H
 
 #include <private/Sk_p>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_MODELLIBRARYFOLDER
 

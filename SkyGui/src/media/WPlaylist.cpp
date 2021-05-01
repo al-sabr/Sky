@@ -77,8 +77,7 @@ static const int PLAYLIST_MAX = 500;
 // WPlaylistWrite and WPlaylistWriteReply
 //=================================================================================================
 
-struct WThreadActionDataTrack
-{
+struct SKY_GUI_EXPORT WThreadActionDataTrack{
     int id;
 
     WTrack::State state;

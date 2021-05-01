@@ -24,6 +24,8 @@
 #define WDECLARATIVEPLAYER_H
 
 // Sk includes
+#include <SkyGuiExports.h>
+
 #ifdef SK_SOFTWARE
 #include <WDeclarativeItemPaint>
 #else

@@ -34,6 +34,7 @@
 */
 
 #include <private/io/WLocalObject_p>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_ABSTRACTTAB
 

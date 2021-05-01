@@ -38,6 +38,7 @@
 
 // Sk includes
 #include <WListId>
+#include <SkyGuiExports.h>
 
 // Private includes
 #include <private/media/WLibraryItem_p>

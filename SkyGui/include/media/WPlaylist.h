@@ -26,6 +26,7 @@
 // Sk includes
 #include <WLibraryItem>
 #include <WTrack>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_PLAYLIST
 

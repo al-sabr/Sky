@@ -34,6 +34,7 @@
 */
 
 #include <private/controllers/WController_p>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_CONTROLLERPLAYLIST
 
@@ -44,8 +45,7 @@ class WBackendLoader;
 // WControllerPlaylistQuery
 //-------------------------------------------------------------------------------------------------
 
-class WControllerPlaylistQuery
-{
+class SKY_GUI_EXPORT WControllerPlaylistQuery{
 public: // Enums
     enum Type
     {

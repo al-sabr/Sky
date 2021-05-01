@@ -28,6 +28,7 @@
 
 // Sk includes
 #include <WDeclarativeContextualPage>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_MODELCONTEXTUAL
 

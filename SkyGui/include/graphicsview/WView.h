@@ -29,6 +29,7 @@
 // Sk includes
 #include <WAbstractView>
 #include <WDeclarativeMouseArea>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_VIEW
 

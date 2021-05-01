@@ -34,6 +34,7 @@
 */
 
 #include <private/Sk_p>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_BOOKMARKTRACK
 

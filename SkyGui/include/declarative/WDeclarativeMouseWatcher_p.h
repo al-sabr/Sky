@@ -30,6 +30,7 @@
 
 // Private includes
 #include <private/declarative/WDeclarativeItem_p>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_DECLARATIVEMOUSEWATCHER
 

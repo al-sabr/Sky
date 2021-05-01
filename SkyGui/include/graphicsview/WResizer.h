@@ -28,6 +28,7 @@
 
 // Sk includes
 #include <Sk>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_RESIZER
 

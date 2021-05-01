@@ -24,6 +24,7 @@
 #define WTABSTRACK_P_H
 
 #include <private/kernel/WAbstractTabs_p>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_TABSTRACK
 

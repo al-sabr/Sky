@@ -25,6 +25,7 @@
 
 // Sk includes
 #include <WDeclarativeItem>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_VIEWRESIZER
 

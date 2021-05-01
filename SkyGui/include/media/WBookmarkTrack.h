@@ -25,6 +25,7 @@
 
 // Sk includes
 #include <WPlaylist>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_BOOKMARKTRACK
 

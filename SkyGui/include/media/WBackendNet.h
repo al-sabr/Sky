@@ -30,6 +30,7 @@
 // Sk includes
 #include <WLibraryFolder>
 #include <WTrack>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_BACKENDNET
 

@@ -40,6 +40,7 @@
 
 // Sk includes
 #include <WPixmapCache>
+#include <SkyGuiExports.h>
 
 // Private includes
 #ifdef QT_4

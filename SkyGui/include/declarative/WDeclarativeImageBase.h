@@ -24,6 +24,8 @@
 #define WDECLARATIVEIMAGEBASE_H
 
 // Sk includes
+#include <SkyGuiExports.h>
+
 #ifdef QT_4
 #include <WDeclarativeItem>
 #else

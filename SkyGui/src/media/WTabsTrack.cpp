@@ -43,8 +43,7 @@ using namespace QtLP_Private;
 // WTabsTrackWrite and WTabsTrackWriteReply
 //=================================================================================================
 
-struct WTabsTrackDataTab
-{
+struct SKY_GUI_EXPORT WTabsTrackDataTab{
     int id;
 };
 

@@ -25,6 +25,7 @@
 
 // Sk includes
 #include <WAbstractTabs>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_TABSTRACK
 

@@ -29,6 +29,7 @@
 #else
 #include <WDeclarativeItem>
 #endif
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_DECLARATIVEBORDERS
 

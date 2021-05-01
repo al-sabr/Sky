@@ -34,6 +34,7 @@
 */
 
 #include <private/media/WLibraryItem_p>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_PLAYLIST
 

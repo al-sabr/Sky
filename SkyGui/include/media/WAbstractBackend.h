@@ -45,8 +45,8 @@ class WAbstractBackendPrivate;
 class WDeclarativePlayer;
 class WBackendFilter;
 #ifdef QT_LATEST
-struct WBackendFrame;
-struct WBackendTexture;
+struct SKY_GUI_EXPORT WBackendFrame;
+struct SKY_GUI_EXPORT WBackendTexture;
 #endif
 
 
@@ -443,8 +443,7 @@ public:
 // WBackendTexture
 //-------------------------------------------------------------------------------------------------
 
-struct WBackendTexture
-{
+struct SKY_GUI_EXPORT WBackendTexture{
     WBackendTexture()
     {
         width  = 0;
@@ -463,8 +462,7 @@ struct WBackendTexture
 // WBackendFrame
 //-------------------------------------------------------------------------------------------------
 
-struct WBackendFrame
-{
+struct SKY_GUI_EXPORT WBackendFrame{
     WBackendFrame()
     {
         state = WAbstractBackend::FrameDefault;

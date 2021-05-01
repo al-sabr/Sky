@@ -38,6 +38,7 @@
 
 // Sk includes
 #include <WDeclarativeMouseArea>
+#include <SkyGuiExports.h>
 
 // Private includes
 #include <private/graphicsview/WAbstractView_p>
@@ -53,8 +54,7 @@ class WResizer;
 // WViewDrag
 //-------------------------------------------------------------------------------------------------
 
-struct WViewDragData
-{
+struct SKY_GUI_EXPORT WViewDragData{
     QString text;
 
     Qt::DropActions actions;

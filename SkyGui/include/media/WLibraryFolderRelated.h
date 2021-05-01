@@ -26,6 +26,7 @@
 // Sk includes
 #include <QVariantMap>
 #include <WLibraryFolder>
+#include <SkyGuiExports.h>
 
 #ifndef SK_NO_LIBRARYFOLDERRELATED
 
