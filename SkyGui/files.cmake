@@ -1,13 +1,4 @@
-# Reminder setup for successful compilation #1
-# Reminder setup for successful compilation #2
-# Reminder setup for successful compilation #3
-# Reminder setup for successful compilation #4
-# Reminder setup for successful compilation #5
-# Reminder setup for successful compilation #6
-# Reminder setup for successful compilation #7
-# Reminder setup for successful compilation #8
-# Reminder setup for successful compilation #9
-# Reminder setup for successful compilation #10
+# Reminder setup for successful compilation #11
 
 set(CPP
 	src/3rdparty/qtsingleapplication/qtsingleapplication.cpp
@@ -18,7 +9,7 @@ set(CPP
 	# src/declarative/WDeclarativeAnimated.cpp
 	# src/declarative/WDeclarativeApplication.cpp
 	src/declarative/WDeclarativeBorderImage.cpp
-	# src/declarative/WDeclarativeBorders.cpp
+	src/declarative/WDeclarativeBorders.cpp
 	src/declarative/WDeclarativeContextualPage.cpp
 	src/declarative/WDeclarativeImage.cpp
 	src/declarative/WDeclarativeImageBase.cpp
@@ -99,8 +90,8 @@ set( HPP
 	include/declarative/WDeclarativeBorderImage
 	include/declarative/WDeclarativeBorderImage.h
 	include/declarative/WDeclarativeBorderImage_p.h
-	# include/declarative/WDeclarativeBorders
-	# include/declarative/WDeclarativeBorders.h
+	include/declarative/WDeclarativeBorders
+	include/declarative/WDeclarativeBorders.h
 	include/declarative/WDeclarativeContextualPage
 	include/declarative/WDeclarativeContextualPage.h
 	include/declarative/WDeclarativeImage
