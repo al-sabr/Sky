@@ -6,6 +6,7 @@
 # Reminder setup for successful compilation #20
 # Reminder setup for successful compilation #21
 # Reminder setup for successful compilation #22
+# Reminder setup for successful compilation #23
 
 set(CPP
 	src/3rdparty/qtsingleapplication/qtsingleapplication.cpp
@@ -64,7 +65,7 @@ set(CPP
 	
 	src/models/WModelCompletionGoogle.cpp
 	src/models/WModelContextual.cpp
-	# src/models/WModelLibraryFolder.cpp
+	src/models/WModelLibraryFolder.cpp
 	src/models/WModelList.cpp
 	# src/models/WModelPlaylist.cpp
 	src/models/WModelRange.cpp
@@ -219,9 +220,9 @@ set( HPP
 	include/models/WModelContextual
 	include/models/WModelContextual.h
 	include/models/WModelContextual_p.h
-	# include/models/WModelLibraryFolder
-	# include/models/WModelLibraryFolder.h
-	# include/models/WModelLibraryFolder_p.h
+	include/models/WModelLibraryFolder
+	include/models/WModelLibraryFolder.h
+	include/models/WModelLibraryFolder_p.h
 	include/models/WModelList
 	include/models/WModelList.h
 	# include/models/WModelPlaylist
@@ -309,7 +310,7 @@ set( HPP
 
 	include/private/models/WModelCompletionGoogle_p
 	include/private/models/WModelContextual_p
-	# include/private/models/WModelLibraryFolder_p
+	include/private/models/WModelLibraryFolder_p
 	# include/private/models/WModelPlaylist_p
 
 )
