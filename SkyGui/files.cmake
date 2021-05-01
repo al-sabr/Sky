@@ -1,14 +1,4 @@
-# Reminder setup for successful compilation #15
-# Reminder setup for successful compilation #16
-# Reminder setup for successful compilation #17
-# Reminder setup for successful compilation #18
-# Reminder setup for successful compilation #19
-# Reminder setup for successful compilation #20
-# Reminder setup for successful compilation #21
-# Reminder setup for successful compilation #22
-# Reminder setup for successful compilation #23
-# Reminder setup for successful compilation #24
-# Reminder setup for successful compilation #25
+# Reminder setup for final successful compilation
 
 set(CPP
 	src/3rdparty/qtsingleapplication/qtsingleapplication.cpp
@@ -234,8 +224,8 @@ set( HPP
 	include/models/WModelTabs
 	include/models/WModelTabs.h
 	
-	# include/private/controllers/WControllerPlaylist_p
-	# include/private/controllers/WControllerPlaylist_p.h
+	include/private/controllers/WControllerPlaylist_p
+	include/private/controllers/WControllerPlaylist_p.h
 	include/private/controllers/WControllerView_p
 	include/private/controllers/WControllerView_p.h
 	
