@@ -6,6 +6,7 @@
 # Reminder setup for successful compilation #6
 # Reminder setup for successful compilation #7
 # Reminder setup for successful compilation #8
+# Reminder setup for successful compilation #9
 
 set(CPP
 	src/3rdparty/qtsingleapplication/qtsingleapplication.cpp
@@ -20,7 +21,7 @@ set(CPP
 	src/declarative/WDeclarativeContextualPage.cpp
 	src/declarative/WDeclarativeImage.cpp
 	src/declarative/WDeclarativeImageBase.cpp
-	# src/declarative/WDeclarativeImageSvg.cpp
+	src/declarative/WDeclarativeImageSvg.cpp
 	src/declarative/WDeclarativeItem.cpp
 	# src/declarative/WDeclarativeListView.cpp
 	src/declarative/WDeclarativeMouseArea.cpp
@@ -103,13 +104,13 @@ set( HPP
 	include/declarative/WDeclarativeContextualPage.h
 	include/declarative/WDeclarativeImage
 	include/declarative/WDeclarativeImage.h
+	include/declarative/WDeclarativeImage_p.h
 	include/declarative/WDeclarativeImageBase
 	include/declarative/WDeclarativeImageBase.h
 	include/declarative/WDeclarativeImageBase_p.h
-	# include/declarative/WDeclarativeImageSvg
-	# include/declarative/WDeclarativeImageSvg.h
-	# include/declarative/WDeclarativeImageSvg_p.h
-	# include/declarative/WDeclarativeImage_p.h
+	include/declarative/WDeclarativeImageSvg
+	include/declarative/WDeclarativeImageSvg.h
+	include/declarative/WDeclarativeImageSvg_p.h
 	include/declarative/WDeclarativeItem
 	include/declarative/WDeclarativeItem.h
 	include/declarative/WDeclarativeItem_p.h
