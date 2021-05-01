@@ -1,6 +1,7 @@
 # Reminder setup for successful compilation #11
 # Reminder setup for successful compilation #12
 # Reminder setup for successful compilation #13
+# Reminder setup for successful compilation #14
 
 set(CPP
 	src/3rdparty/qtsingleapplication/qtsingleapplication.cpp
@@ -19,7 +20,7 @@ set(CPP
 	src/declarative/WDeclarativeItem.cpp
 	src/declarative/WDeclarativeListView.cpp
 	src/declarative/WDeclarativeMouseArea.cpp
-	# src/declarative/WDeclarativeMouseWatcher.cpp
+	src/declarative/WDeclarativeMouseWatcher.cpp
 	# src/declarative/WDeclarativePlayer.cpp
 	# src/declarative/WDeclarativeText.cpp
 	# src/declarative/WDeclarativeTextSvg.cpp
@@ -114,9 +115,9 @@ set( HPP
 	include/declarative/WDeclarativeMouseArea
 	include/declarative/WDeclarativeMouseArea.h
 	include/declarative/WDeclarativeMouseArea_p.h
-	# include/declarative/WDeclarativeMouseWatcher
-	# include/declarative/WDeclarativeMouseWatcher.h
-	# include/declarative/WDeclarativeMouseWatcher_p.h
+	include/declarative/WDeclarativeMouseWatcher
+	include/declarative/WDeclarativeMouseWatcher.h
+	include/declarative/WDeclarativeMouseWatcher_p.h
 	# include/declarative/WDeclarativePlayer
 	# include/declarative/WDeclarativePlayer.h
 	# include/declarative/WDeclarativePlayer_p.h
@@ -247,8 +248,8 @@ set( HPP
 	include/private/declarative/WDeclarativeListView_p.h
 	include/private/declarative/WDeclarativeMouseArea_p
 	include/private/declarative/WDeclarativeMouseArea_p.h
-	# include/private/declarative/WDeclarativeMouseWatcher_p
-	# include/private/declarative/WDeclarativeMouseWatcher_p.h
+	include/private/declarative/WDeclarativeMouseWatcher_p
+	include/private/declarative/WDeclarativeMouseWatcher_p.h
 	# include/private/declarative/WDeclarativePlayer_p
 	# include/private/declarative/WDeclarativePlayer_p.h
 	# include/private/declarative/WDeclarativeTextSvg_p
