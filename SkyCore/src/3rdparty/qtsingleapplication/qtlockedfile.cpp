@@ -62,6 +62,7 @@
 
 #include "qtlockedfile.h"
 
+using namespace QtLP_Private;
 /*!
     \class QtLockedFile
 
@@ -129,8 +130,6 @@ QtLockedFile::QtLockedFile(const QString &name)
     m_lock_mode = NoLock;
 }
 
-QtLockedFile::~QtLockedFile(){
-}
 /*!
   Opens the file in OpenMode \a mode.
 

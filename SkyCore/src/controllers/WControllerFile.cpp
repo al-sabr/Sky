@@ -54,7 +54,7 @@
 #include <private/io/WFileWatcher_p>
 
 // Namespaces
-//using namespace QtLP_Private;
+using namespace QtLP_Private;
 
 W_INIT_CONTROLLER(WControllerFile)
 
