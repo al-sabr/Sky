@@ -1,7 +1,7 @@
 # Reminder setup for successful compilation #1
 
 set(CPP
-	#src/3rdparty/qtsingleapplication/qtsingleapplication.cpp
+	src/3rdparty/qtsingleapplication/qtsingleapplication.cpp
 	
 	#src/controllers/WControllerPlaylist.cpp
 	# src/controllers/WControllerView.cpp
@@ -72,8 +72,8 @@ if(QT_MAJOR_VERSION EQUAL 5)
 endif()
 
 set( HPP
-	# include/3rdparty/qtsingleapplication/QtSingleApplication
-	# include/3rdparty/qtsingleapplication/qtsingleapplication.h
+	include/3rdparty/qtsingleapplication/QtSingleApplication
+	include/3rdparty/qtsingleapplication/qtsingleapplication.h
 
 	# include/controllers/WControllerPlaylist
 	# include/controllers/WControllerPlaylist.h
