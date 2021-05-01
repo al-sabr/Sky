@@ -1,4 +1,5 @@
 # Reminder setup for successful compilation #11
+# Reminder setup for successful compilation #12
 
 set(CPP
 	src/3rdparty/qtsingleapplication/qtsingleapplication.cpp
@@ -6,7 +7,7 @@ set(CPP
 	# src/controllers/WControllerPlaylist.cpp
 	src/controllers/WControllerView.cpp
 	
-	# src/declarative/WDeclarativeAnimated.cpp
+	src/declarative/WDeclarativeAnimated.cpp
 	# src/declarative/WDeclarativeApplication.cpp
 	src/declarative/WDeclarativeBorderImage.cpp
 	src/declarative/WDeclarativeBorders.cpp
@@ -82,9 +83,9 @@ set( HPP
 	include/controllers/WControllerView.h
 	include/controllers/WControllerView_p.h
 	
-	# include/declarative/WDeclarativeAnimated
-	# include/declarative/WDeclarativeAnimated.h
-	# include/declarative/WDeclarativeAnimated_p.h
+	include/declarative/WDeclarativeAnimated
+	include/declarative/WDeclarativeAnimated.h
+	include/declarative/WDeclarativeAnimated_p.h
 	# include/declarative/WDeclarativeApplication
 	# include/declarative/WDeclarativeApplication.h
 	include/declarative/WDeclarativeBorderImage
@@ -229,8 +230,8 @@ set( HPP
 	include/private/controllers/WControllerView_p
 	include/private/controllers/WControllerView_p.h
 	
-	# include/private/declarative/WDeclarativeAnimated_p
-	# include/private/declarative/WDeclarativeAnimated_p.h
+	include/private/declarative/WDeclarativeAnimated_p
+	include/private/declarative/WDeclarativeAnimated_p.h
 	include/private/declarative/WDeclarativeBorderImage_p
 	include/private/declarative/WDeclarativeBorderImage_p.h
 	include/private/declarative/WDeclarativeImageBase_p
