@@ -2,6 +2,7 @@
 # Reminder setup for successful compilation #16
 # Reminder setup for successful compilation #17
 # Reminder setup for successful compilation #18
+# Reminder setup for successful compilation #19
 
 set(CPP
 	src/3rdparty/qtsingleapplication/qtsingleapplication.cpp
@@ -18,6 +19,7 @@ set(CPP
 	src/declarative/WDeclarativeImageBase.cpp
 	src/declarative/WDeclarativeImageSvg.cpp
 	src/declarative/WDeclarativeItem.cpp
+	src/declarative/WDeclarativeItemPaint.cpp
 	src/declarative/WDeclarativeListView.cpp
 	src/declarative/WDeclarativeMouseArea.cpp
 	src/declarative/WDeclarativeMouseWatcher.cpp
@@ -311,12 +313,12 @@ set( HPP
 
 if(QT_DEFAULT_MAJOR_VERSION EQUAL 5)
 	list(APPEND HPP
-		# include/declarative/WDeclarativeItemPaint
-		# include/declarative/WDeclarativeItemPaint.h
-		# include/declarative/WDeclarativeItemPaint_p.h
+		include/declarative/WDeclarativeItemPaint
+		include/declarative/WDeclarativeItemPaint.h
+		include/declarative/WDeclarativeItemPaint_p.h
 
-		# include/private/declarative/WDeclarativeItemPaint_p
-		# include/private/declarative/WDeclarativeItemPaint_p.h
+		include/private/declarative/WDeclarativeItemPaint_p
+		include/private/declarative/WDeclarativeItemPaint_p.h
 
 		include/declarative/WDeclarativeTexture
 		include/declarative/WDeclarativeTexture.h
