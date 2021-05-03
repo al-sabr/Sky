@@ -20,7 +20,6 @@ find_package(Qt5 COMPONENTS
 )
 
 include(files.cmake)
-include(externals.cmake)
 
 set(SkyTorrent_TARGET_LIBRARIES)
 
