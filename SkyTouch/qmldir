@@ -1,0 +1,57 @@
+StyleTouch 1.0 StyleTouch.qml
+
+Panel                    1.0 Panel.qml
+PanelContextual          1.0 PanelContextual.qml
+PanelContextualFlickable 1.0 PanelContextualFlickable.qml
+PanelContextualList      1.0 PanelContextualList.qml
+
+BaseButtonTouch 1.0 BaseButtonTouch.qml
+ButtonTouch     1.0 ButtonTouch.qml
+ButtonTouchLeft 1.0 ButtonTouchLeft.qml
+ButtonTouchTiny 1.0 ButtonTouchTiny.qml
+ButtonTouchIcon 1.0 ButtonTouchIcon.qml
+ButtonTouchFull 1.0 ButtonTouchFull.qml
+
+ButtonWide       1.0 ButtonWide.qml
+ButtonWideAction 1.0 ButtonWideAction.qml
+ButtonWideFull   1.0 ButtonWideFull.qml
+
+ButtonMask 1.0 ButtonMask.qml
+
+ButtonsWindow 1.0 ButtonsWindow.qml
+
+BaseLabel    1.0 BaseLabel.qml
+Label        1.0 Label.qml
+LabelTiny    1.0 LabelTiny.qml
+LabelIcon    1.0 LabelIcon.qml
+LabelLoading 1.0 LabelLoading.qml
+
+LabelWide     1.0 LabelWide.qml
+LabelWideTiny 1.0 LabelWideTiny.qml
+
+LineEdit      1.0 LineEdit.qml
+LineEditClear 1.0 LineEditClear.qml
+
+Console 1.0 Console.qml
+
+ColumnWide   1.0 ColumnWide.qml
+ColumnScroll 1.0 ColumnScroll.qml
+
+List        1.0 List.qml
+ListLoading 1.0 ListLoading.qml
+
+ScrollArea 1.0 ScrollArea.qml
+ScrollBar  1.0 ScrollBar.qml
+
+Slider       1.0 Slider.qml
+SliderStream 1.0 SliderStream.qml
+
+PlayerBrowser 1.0 PlayerBrowser.qml
+
+ComponentItem         1.0 ComponentItem.qml
+ComponentContextual   1.0 ComponentContextual.qml
+ComponentCompletion   1.0 ComponentCompletion.qml
+ComponentBackend      1.0 ComponentBackend.qml
+ComponentBackendFull  1.0 ComponentBackendFull.qml
+ComponentTrack        1.0 ComponentTrack.qml
+ComponentTrackHistory 1.0 ComponentTrackHistory.qml
