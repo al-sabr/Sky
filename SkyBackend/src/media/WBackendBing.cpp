@@ -44,7 +44,7 @@ static const QString BACKENDBING_FILTERS
 // Private
 //-------------------------------------------------------------------------------------------------
 
-#include <private/media/media/WBackendNet_p>
+#include <private/media/WBackendNet_p>
 
 class SKY_BACKEND_EXPORT WBackendBingPrivate : public WBackendNetPrivate
 {

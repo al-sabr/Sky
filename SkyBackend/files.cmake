@@ -21,6 +21,7 @@ set( HPP
 	include/SkBackend
 	include/SkBackend.h
 	
+	include/io/WBackendCache
 	include/io/WBackendCache.h
 	include/io/WBackendIndex
 	include/io/WBackendIndex.h
