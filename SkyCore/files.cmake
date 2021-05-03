@@ -27,7 +27,7 @@ set(CPP
   src/io/WLocalObject.cpp
   src/io/WUnzipper.cpp
   
-  #src/io/WYamlReader.cpp
+  src/io/WYamlReader.cpp
 
   src/network/WCookieJar.cpp
 
@@ -112,8 +112,8 @@ set( HPP
   include/io/WUnzipper
   include/io/WUnzipper.h
 
-  # include/io/WYamlReader
-  # include/io/WYamlReader.h
+  include/io/WYamlReader
+  include/io/WYamlReader.h
 
   include/kernel/WCoreApplication
   include/kernel/WCoreApplication.h
