@@ -19,8 +19,6 @@ find_package(Qt5 COMPONENTS
   REQUIRED
 )
 
-find_package(LibtorrentRasterbar CONFIG REQUIRED)
-
 include(files.cmake)
 include(externals.cmake)
 
@@ -56,7 +54,7 @@ add_library(${PROJECT_NAME} ${TYPE_OF_LIBRARY} ${CPP} ${HPP})
 
 set(TORRENT_LINKING_SHARED ON)
 
-target_link_libraries(${PROJECT_NAME} ${SkyTorrent_TARGET_LIBRARIES} SkyCore SkyGui LibtorrentRasterbar::torrent-rasterbar) #LibtorrentRasterbar::torrent-rasterbar
+target_link_libraries(${PROJECT_NAME} ${SkyTorrent_TARGET_LIBRARIES} SkyCore SkyGui torrent-rasterbar) #LibtorrentRasterbar::torrent-rasterbar
 
 set(target_folders_public
   ${PROJECT_BINARY_DIR}
@@ -90,7 +88,7 @@ if(WIN32 AND MSVC)
 endif()
 
 # libtorrent definitions
-add_definitions(-DBOOST_ALL_NO_LIB -DBOOST_ASIO_ENABLE_CANCELIO -DBOOST_ASIO_HAS_STD_CHRONO -DBOOST_MULTI_INDEX_DISABLE_SERIALIZATION -DBOOST_NO_DEPRECATED -DBOOST_SYSTEM_NO_DEPRECATED)
+add_definitions(-DTORRENT_LINKING_SHARED)
 
 # -DSK_NO_UNZIPPER -DSK_NO_CONTROLLERFILE -DSK_NO_CACHE -DSK_NO_FILEWATCHER -DSK_NO_ABSTRACTLOADER -DSK_NO_LOADERNETWORK -DSK_NO_CONTROLLERDOWNLOAD -DSK_NO_CONTROLLERPLUGIN  -DSK_NO_YAMLREADER -DSK_NO_PLUGIN -DSK_NO_COOKIEJAR
 

@@ -41,6 +41,9 @@
 #include <libtorrent/write_resume_data.hpp>
 #endif
 
+// C++ includes
+#include <fstream>
+
 #ifdef LIBTORRENT_ABI_1
 // Boost includes
 #include <boost/bind.hpp>
