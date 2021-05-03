@@ -83,12 +83,12 @@ set(target_folders_private
   include/private/models
 )
 
-include_directories(${target_folders_public} ${target_folders_private})
+include_directories(${target_folders_public} ${target_folders_private} ${SkyGui_INCLUDE_DIR})
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_public})
 target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_private})
 
-add_definitions(-DQT_${QT_DEFAULT_MAJOR_VERSION} -DQT_LATEST -DQT_QTLOCKEDFILE_IMPORT -DSKY_CORE_IMPORT) #-DQT_QTLOCKEDFILE_IMPORT
+add_definitions(-DQT_${QT_DEFAULT_MAJOR_VERSION} -DQT_LATEST -DQT_QTLOCKEDFILE_IMPORT) #-DQT_QTLOCKEDFILE_IMPORT
 
 if(WIN32)
   add_definitions(-DSKY_WIN_NATIVE -D_UNICODE -DUNICODE)

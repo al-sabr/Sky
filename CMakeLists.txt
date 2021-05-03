@@ -8,6 +8,7 @@ else()
   set(TYPE_OF_LIBRARY "SHARED")
 endif()
   
+add_subdirectory(libtorrent)
 add_subdirectory(SkyCore)
 add_subdirectory(SkyBackend)
 add_subdirectory(SkyGui)
