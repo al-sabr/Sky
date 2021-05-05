@@ -33,15 +33,15 @@
     We mean it.
 */
 
-#include <private/WAbstractLoader_p>
-
+#include <private/io/WAbstractLoader_p>
+#include <SkyWebExports.h>
 #ifndef SK_NO_LOADERWEB
 
 // Forward declarations
 class QNetworkAccessManager;
 class WLoaderWebPage;
 
-class SK_WEB_EXPORT WLoaderWebPrivate : public WAbstractLoaderPrivate
+class SKY_WEB_EXPORT WLoaderWebPrivate : public WAbstractLoaderPrivate
 {
 public:
     WLoaderWebPrivate(WLoaderWeb * p);

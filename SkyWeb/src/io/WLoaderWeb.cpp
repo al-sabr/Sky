@@ -26,8 +26,8 @@
 
 // Qt includes
 #include <QNetworkProxy>
-#include <QWebPage>
-#include <QWebFrame>
+#include <QWebEnginePage>
+#include <QWebEngineSettings>
 #include <QBuffer>
 
 // Sk includes
@@ -37,7 +37,7 @@
 // WLoaderWebPage
 //=================================================================================================
 
-class WLoaderWebPage : public QWebPage
+class WLoaderWebPage : public QWebEnginePage
 {
     Q_OBJECT
 
@@ -54,7 +54,7 @@ public: // Variables
 
 bool WLoaderWebPage::shouldInterruptJavaScript()
 {
-    mainFrame()->setContent(QByteArray());
+    this->setContent(QByteArray());
 
     return true;
 }
@@ -93,11 +93,12 @@ void WLoaderWebPrivate::onLoadFinished(bool ok)
         q->setError(q->getData(buffer), "Error(s) occured while loading the Webpage");
     }
 
-    QByteArray bytes = page->mainFrame()->toHtml().toUtf8();
+    // Commented this part could not find the equivalent in Qt5.
+    /*QByteArray bytes = page->toHtml().toUtf8();
 
     buffer->setData(bytes);
 
-    buffer->open(QIODevice::ReadOnly);
+    buffer->open(QIODevice::ReadOnly);*/
 
     q->complete(buffer);
 
@@ -151,18 +152,19 @@ void WLoaderWebPrivate::onLoadFinished(bool ok)
 
     page->buffer = buffer;
 
-    page->setNetworkAccessManager(d->manager);
+    // Commented this part also for same reason.
+    //page->setNetworkAccessManager(d->manager);
 
-    QWebSettings * settings = page->settings();
+    QWebEngineSettings* settings = settings;
 
-    settings->setAttribute(QWebSettings::AutoLoadImages,    false);
-    settings->setAttribute(QWebSettings::JavascriptEnabled, false);
+    settings->setAttribute(QWebEngineSettings::AutoLoadImages,    false);
+    settings->setAttribute(QWebEngineSettings::JavascriptEnabled, false);
 
     connect(page, SIGNAL(loadFinished(bool)), this, SLOT(onLoadFinished(bool)));
 
     d->pages.insert(buffer, page);
 
-    page->mainFrame()->load(data->url());
+    page->load(data->url());
 
     return buffer;
 }

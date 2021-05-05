@@ -15,11 +15,10 @@ endif()
 # 3rd party dependencies
 #
 find_package(Qt5 COMPONENTS
-  Core Webkit Webkitwidgets Qml${extras}
+  Core Gui Qml Widgets WebEngineWidgets ${extras}
   CONFIG REQUIRED
 )
 
-include(externals.cmake)
 include(files.cmake)
 
 set(SkyWeb_TARGET_LIBRARIES)
@@ -27,7 +26,7 @@ set(SkyWeb_TARGET_LIBRARIES)
 if(QT_DEFAULT_MAJOR_VERSION GREATER 4)
   message("QT_DEFAULT_MAJOR_VERSION = ${QT_DEFAULT_MAJOR_VERSION}")
   list(APPEND SkyWeb_TARGET_LIBRARIES
-      Qt5::Core Qt5::Webkit Qt5::Widgets Qt5::WidgetsPrivate Qt5::Webkitwidgets Qt5:Qml)
+      Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Qml Qt5::WebEngineWidgets)
   message("SkyWeb_TARGET_LIBRARIES = ${SkyWeb_TARGET_LIBRARIES}")
 else()
   list(APPEND SkyWeb_TARGET_LIBRARIES QT_LIBRARIES)
@@ -54,7 +53,7 @@ add_library(${PROJECT_NAME} ${TYPE_OF_LIBRARY} ${CPP} ${HPP})
 
 set(TORRENT_LINKING_SHARED ON)
 
-target_link_libraries(${PROJECT_NAME} ${SkyWeb_TARGET_LIBRARIES} SkyCore SkyGui libvlc libvlccore)
+target_link_libraries(${PROJECT_NAME} ${SkyWeb_TARGET_LIBRARIES} SkyCore)
 
 set(target_folders_public
   ${PROJECT_BINARY_DIR}
@@ -90,6 +89,6 @@ target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_14)
 include(GenerateExportHeader)
 generate_export_header(${PROJECT_NAME}
   BASE_NAME "SkyWeb"
-  EXPORT_MACRO_NAME "SKY_MEDIA_EXPORT"
+  EXPORT_MACRO_NAME "SKY_WEB_EXPORT"
   EXPORT_FILE_NAME "SkyWebExports.h"
   )

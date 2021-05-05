@@ -25,15 +25,16 @@
 
 // Sk includes
 #include <WAbstractLoader>
+#include <SkyWebExports.h>
 
 #ifndef SK_NO_LOADERWEB
 
 // Forward declarations
 class QAbstractNetworkCache;
 class QNetworkCookieJar;
-class WLoaderWebPrivate;
+class SK_WEB_EXPORTate;
 
-class SK_WEB_EXPORT WLoaderWeb : public WAbstractLoader
+class SKY_WEB_EXPORT WLoaderWeb : public WAbstractLoader
 {
     Q_OBJECT
 
@@ -75,7 +76,7 @@ private:
     Q_PRIVATE_SLOT(d_func(), void onLoadFinished(bool))
 };
 
-#include <private/WLoaderWeb_p>
+#include <private/io/WLoaderWeb_p>
 
 #endif // SK_NO_LOADERWEB
 #endif // WLOADERWEB_H
