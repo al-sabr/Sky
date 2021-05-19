@@ -15,3 +15,5 @@ add_subdirectory(SkyGui)
 add_subdirectory(SkyMedia)
 add_subdirectory(SkyTorrent)
 add_subdirectory(SkyWeb)
+
+export(TARGETS SkyCore SkyBackend SkyGui SkyMedia SkyTorrent SkyWeb NAMESPACE SkyFramework:: FILE SkyFrameworkTargets.cmake)
