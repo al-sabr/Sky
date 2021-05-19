@@ -73,3 +73,4 @@ if(QUAZIP_ENABLE_TESTS)
         add_subdirectory(qztest EXCLUDE_FROM_ALL)
 endif()
 
+export(TARGETS QuaZip FILE QuaZipTargets.cmake)

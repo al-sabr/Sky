@@ -39,3 +39,5 @@ SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/build)
 
 INSTALL (TARGETS charsetdetect DESTINATION lib)
 INSTALL (FILES charsetdetect.h DESTINATION include)
+
+export(TARGETS charsetdetect FILE charsetdetectTargets.cmake)
