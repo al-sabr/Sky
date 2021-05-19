@@ -32,7 +32,7 @@
 // Forward declarations
 class QAbstractNetworkCache;
 class QNetworkCookieJar;
-class SK_WEB_EXPORTate;
+class WLoaderWebPrivate;
 
 class SKY_WEB_EXPORT WLoaderWeb : public WAbstractLoader
 {
