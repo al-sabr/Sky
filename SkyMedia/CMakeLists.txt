@@ -63,6 +63,7 @@ set(target_folders_public
   include/controllers
   include/media
   include/vlc
+  include/vlc/plugins
 )
 
 set(target_folders_private
