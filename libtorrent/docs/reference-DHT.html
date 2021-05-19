@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.16: http://docutils.sourceforge.net/" />
+<title>reference-DHT.rst</title>
+<meta name="author" content="Arvid Norberg, arvid&#64;libtorrent.org" />
+<meta name=viewport content="width=device-width, initial-scale=1">
+<script type="text/javascript">
+/* <![CDATA[ */
+    (function() {
+        var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'https://api.flattr.com/js/0.6/load.js?mode=auto';
+        t.parentNode.insertBefore(s, t);
+    })();
+/* ]]> */
+</script>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" type="text/css" href="rst.css" />
+<style type="text/css">
+/* Hides from IE-mac \*/
+* html pre { height: 1%; }
+/* End hide from IE-mac */
+</style>
+</head>
+<body>
+<div class="document">
+    <div id="container">
+    <a href="index.html"><table id="header">
+    <tr><td id="orange"></td>
+    <td id="logo">libtorrent</td></tr>
+    </table></a>
+    <div id="main">
+
+<table class="docinfo" frame="void" rules="none">
+<col class="docinfo-name" />
+<col class="docinfo-content" />
+<tbody valign="top">
+<tr><th class="docinfo-name">Author:</th>
+<td>Arvid Norberg, <a class="last reference external" href="mailto:arvid&#64;libtorrent.org">arvid&#64;libtorrent.org</a></td></tr>
+<tr><th class="docinfo-name">Version:</th>
+<td>1.2.6</td></tr>
+</tbody>
+</table>
+<p><a class="reference external" href="reference.html">home</a></p>
+<div class="section" id="dht">
+<h1>DHT</h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title">Table of contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#dht" id="id18">DHT</a><ul>
+<li><a class="reference internal" href="#dht-settings" id="id19">dht_settings</a></li>
+<li><a class="reference internal" href="#dht-storage-counters" id="id20">dht_storage_counters</a></li>
+<li><a class="reference internal" href="#dht-storage-interface" id="id21">dht_storage_interface</a></li>
+<li><a class="reference internal" href="#dht-state" id="id22">dht_state</a></li>
+<li><a class="reference internal" href="#dht-default-storage-constructor" id="id23">dht_default_storage_constructor()</a></li>
+<li><a class="reference internal" href="#sign-mutable-item" id="id24">sign_mutable_item()</a></li>
+<li><a class="reference internal" href="#announce-flags-t" id="id25">announce_flags_t</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<a name="dht_settings"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:class+dht_settings&labels=documentation&body=Documentation+under+heading+%22class+dht_settings%22+could+be+improved">report issue</a>]</span><div class="section" id="dht-settings">
+<h2>dht_settings</h2>
+<p>Declared in &quot;<a class="reference external" href="../include/libtorrent/kademlia/dht_settings.hpp">libtorrent/kademlia/dht_settings.hpp</a>&quot;</p>
+<p>structure used to hold configuration options for the DHT</p>
+<p>The <tt class="docutils literal">dht_settings</tt> struct used to contain a <tt class="docutils literal">service_port</tt> member to
+control which port the DHT would listen on and send messages from. This
+field is deprecated and ignored. libtorrent always tries to open the UDP
+socket on the same port as the TCP socket.</p>
+<pre class="literal-block">
+struct dht_settings
+{
+   int <strong>max_peers_reply</strong>  = 100;
+   int <strong>search_branching</strong>  = 5;
+   int <strong>max_fail_count</strong>  = 20;
+   int <strong>max_torrents</strong>  = 2000;
+   int <strong>max_dht_items</strong>  = 700;
+   int <strong>max_peers</strong>  = 500;
+   int <strong>max_torrent_search_reply</strong>  = 20;
+   bool <strong>restrict_routing_ips</strong>  = true;
+   bool <strong>restrict_search_ips</strong>  = true;
+   bool <strong>extended_routing_table</strong>  = true;
+   bool <strong>aggressive_lookups</strong>  = true;
+   bool <strong>privacy_lookups</strong>  = false;
+   bool <strong>enforce_node_id</strong>  = false;
+   bool <strong>ignore_dark_internet</strong>  = true;
+   int <strong>block_timeout</strong>  = 5 * 60;
+   int <strong>block_ratelimit</strong>  = 5;
+   bool <strong>read_only</strong>  = false;
+   int <strong>item_lifetime</strong>  = 0;
+   int <strong>upload_rate_limit</strong>  = 8000;
+   int <strong>sample_infohashes_interval</strong>  = 21600;
+   int <strong>max_infohashes_sample_count</strong>  = 20;
+};
+</pre>
+<a name="max_peers_reply"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_settings%3A%3A%5Bmax_peers_reply%5D&labels=documentation&body=Documentation+under+heading+%22dht_settings%3A%3A%5Bmax_peers_reply%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>max_peers_reply</dt>
+<dd>the maximum number of peers to send in a reply to <tt class="docutils literal">get_peers</tt></dd>
+</dl>
+<a name="search_branching"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_settings%3A%3A%5Bsearch_branching%5D&labels=documentation&body=Documentation+under+heading+%22dht_settings%3A%3A%5Bsearch_branching%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>search_branching</dt>
+<dd>the number of concurrent search request the node will send when
+announcing and refreshing the routing table. This parameter is called
+alpha in the kademlia paper</dd>
+</dl>
+<a name="max_fail_count"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_settings%3A%3A%5Bmax_fail_count%5D&labels=documentation&body=Documentation+under+heading+%22dht_settings%3A%3A%5Bmax_fail_count%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>max_fail_count</dt>
+<dd>the maximum number of failed tries to contact a node before it is
+removed from the routing table. If there are known working nodes that
+are ready to replace a failing node, it will be replaced immediately,
+this limit is only used to clear out nodes that don't have any node
+that can replace them.</dd>
+</dl>
+<a name="max_torrents"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_settings%3A%3A%5Bmax_torrents%5D&labels=documentation&body=Documentation+under+heading+%22dht_settings%3A%3A%5Bmax_torrents%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>max_torrents</dt>
+<dd>the total number of torrents to track from the DHT. This is simply an
+upper limit to make sure malicious DHT nodes cannot make us allocate
+an unbounded amount of memory.</dd>
+</dl>
+<a name="max_dht_items"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_settings%3A%3A%5Bmax_dht_items%5D&labels=documentation&body=Documentation+under+heading+%22dht_settings%3A%3A%5Bmax_dht_items%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>max_dht_items</dt>
+<dd>max number of items the DHT will store</dd>
+</dl>
+<a name="max_peers"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_settings%3A%3A%5Bmax_peers%5D&labels=documentation&body=Documentation+under+heading+%22dht_settings%3A%3A%5Bmax_peers%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>max_peers</dt>
+<dd>the max number of peers to store per torrent (for the DHT)</dd>
+</dl>
+<a name="max_torrent_search_reply"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_settings%3A%3A%5Bmax_torrent_search_reply%5D&labels=documentation&body=Documentation+under+heading+%22dht_settings%3A%3A%5Bmax_torrent_search_reply%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>max_torrent_search_reply</dt>
+<dd>the max number of torrents to return in a torrent search query to the
+DHT</dd>
+</dl>
+<a name="restrict_routing_ips"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_settings%3A%3A%5Brestrict_routing_ips%5D&labels=documentation&body=Documentation+under+heading+%22dht_settings%3A%3A%5Brestrict_routing_ips%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>restrict_routing_ips</dt>
+<dd><p class="first">determines if the routing table entries should restrict entries to one
+per IP. This defaults to true, which helps mitigate some attacks on
+the DHT. It prevents adding multiple nodes with IPs with a very close
+CIDR distance.</p>
+<p class="last">when set, nodes whose IP address that's in the same /24 (or /64 for
+IPv6) range in the same routing table bucket. This is an attempt to
+mitigate node ID spoofing attacks also restrict any IP to only have a
+single <a class="reference external" href="reference-Bencoding.html#entry">entry</a> in the whole routing table</p>
+</dd>
+</dl>
+<a name="restrict_search_ips"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_settings%3A%3A%5Brestrict_search_ips%5D&labels=documentation&body=Documentation+under+heading+%22dht_settings%3A%3A%5Brestrict_search_ips%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>restrict_search_ips</dt>
+<dd>determines if DHT searches should prevent adding nodes with IPs with
+very close CIDR distance. This also defaults to true and helps
+mitigate certain attacks on the DHT.</dd>
+</dl>
+<a name="extended_routing_table"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_settings%3A%3A%5Bextended_routing_table%5D&labels=documentation&body=Documentation+under+heading+%22dht_settings%3A%3A%5Bextended_routing_table%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>extended_routing_table</dt>
+<dd>makes the first buckets in the DHT routing table fit 128, 64, 32 and
+16 nodes respectively, as opposed to the standard size of 8. All other
+buckets have size 8 still.</dd>
+</dl>
+<a name="aggressive_lookups"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_settings%3A%3A%5Baggressive_lookups%5D&labels=documentation&body=Documentation+under+heading+%22dht_settings%3A%3A%5Baggressive_lookups%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>aggressive_lookups</dt>
+<dd>slightly changes the lookup behavior in terms of how many outstanding
+requests we keep. Instead of having branch factor be a hard limit, we
+always keep <em>branch factor</em> outstanding requests to the closest nodes.
+i.e. every time we get results back with closer nodes, we query them
+right away. It lowers the lookup times at the cost of more outstanding
+queries.</dd>
+</dl>
+<a name="privacy_lookups"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_settings%3A%3A%5Bprivacy_lookups%5D&labels=documentation&body=Documentation+under+heading+%22dht_settings%3A%3A%5Bprivacy_lookups%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>privacy_lookups</dt>
+<dd>when set, perform lookups in a way that is slightly more expensive,
+but which minimizes the amount of information leaked about you.</dd>
+</dl>
+<a name="enforce_node_id"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_settings%3A%3A%5Benforce_node_id%5D&labels=documentation&body=Documentation+under+heading+%22dht_settings%3A%3A%5Benforce_node_id%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>enforce_node_id</dt>
+<dd>when set, node's whose IDs that are not correctly generated based on
+its external IP are ignored. When a query arrives from such node, an
+error message is returned with a message saying &quot;invalid node ID&quot;.</dd>
+</dl>
+<a name="ignore_dark_internet"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_settings%3A%3A%5Bignore_dark_internet%5D&labels=documentation&body=Documentation+under+heading+%22dht_settings%3A%3A%5Bignore_dark_internet%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>ignore_dark_internet</dt>
+<dd>ignore DHT messages from parts of the internet we wouldn't expect to
+see any traffic from</dd>
+</dl>
+<a name="block_timeout"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_settings%3A%3A%5Bblock_timeout%5D&labels=documentation&body=Documentation+under+heading+%22dht_settings%3A%3A%5Bblock_timeout%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>block_timeout</dt>
+<dd>the number of seconds a DHT node is banned if it exceeds the rate
+limit. The rate limit is averaged over 10 seconds to allow for bursts
+above the limit.</dd>
+</dl>
+<a name="block_ratelimit"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_settings%3A%3A%5Bblock_ratelimit%5D&labels=documentation&body=Documentation+under+heading+%22dht_settings%3A%3A%5Bblock_ratelimit%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>block_ratelimit</dt>
+<dd>the max number of packets per second a DHT node is allowed to send
+without getting banned.</dd>
+</dl>
+<a name="read_only"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_settings%3A%3A%5Bread_only%5D&labels=documentation&body=Documentation+under+heading+%22dht_settings%3A%3A%5Bread_only%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>read_only</dt>
+<dd>when set, the other nodes won't keep this node in their routing
+tables, it's meant for low-power and/or ephemeral devices that
+cannot support the DHT, it is also useful for mobile devices which
+are sensitive to network traffic and battery life.
+this node no longer responds to 'query' messages, and will place a
+'ro' key (value = 1) in the top-level message dictionary of outgoing
+query messages.</dd>
+</dl>
+<a name="item_lifetime"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_settings%3A%3A%5Bitem_lifetime%5D&labels=documentation&body=Documentation+under+heading+%22dht_settings%3A%3A%5Bitem_lifetime%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>item_lifetime</dt>
+<dd>the number of seconds a immutable/mutable item will be expired.
+default is 0, means never expires.</dd>
+</dl>
+<a name="upload_rate_limit"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_settings%3A%3A%5Bupload_rate_limit%5D&labels=documentation&body=Documentation+under+heading+%22dht_settings%3A%3A%5Bupload_rate_limit%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>upload_rate_limit</dt>
+<dd>the number of bytes per second (on average) the DHT is allowed to send.
+If the incoming requests causes to many bytes to be sent in responses,
+incoming requests will be dropped until the quota has been replenished.</dd>
+</dl>
+<a name="sample_infohashes_interval"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_settings%3A%3A%5Bsample_infohashes_interval%5D&labels=documentation&body=Documentation+under+heading+%22dht_settings%3A%3A%5Bsample_infohashes_interval%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>sample_infohashes_interval</dt>
+<dd>the info-hashes sample recomputation interval (in seconds).
+The node will precompute a subset of the tracked info-hashes and return
+that instead of calculating it upon each request. The permissible range
+is between 0 and 21600 seconds (inclusive).</dd>
+</dl>
+<a name="max_infohashes_sample_count"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_settings%3A%3A%5Bmax_infohashes_sample_count%5D&labels=documentation&body=Documentation+under+heading+%22dht_settings%3A%3A%5Bmax_infohashes_sample_count%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>max_infohashes_sample_count</dt>
+<dd>the maximum number of elements in the sampled subset of info-hashes.
+If this number is too big, expect the DHT storage implementations
+to clamp it in order to allow UDP packets go through</dd>
+</dl>
+<a name="dht_storage_counters"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:class+dht_storage_counters&labels=documentation&body=Documentation+under+heading+%22class+dht_storage_counters%22+could+be+improved">report issue</a>]</span></div>
+<div class="section" id="dht-storage-counters">
+<h2>dht_storage_counters</h2>
+<p>Declared in &quot;<a class="reference external" href="../include/libtorrent/kademlia/dht_storage.hpp">libtorrent/kademlia/dht_storage.hpp</a>&quot;</p>
+<p>This structure hold the relevant counters for the storage</p>
+<pre class="literal-block">
+struct dht_storage_counters
+{
+   void <strong>reset</strong> ();
+
+   std::int32_t <strong>torrents</strong>  = 0;
+   std::int32_t <strong>peers</strong>  = 0;
+   std::int32_t <strong>immutable_data</strong>  = 0;
+   std::int32_t <strong>mutable_data</strong>  = 0;
+};
+</pre>
+<a name="reset()"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_storage_counters%3A%3A%5Breset%28%29%5D&labels=documentation&body=Documentation+under+heading+%22dht_storage_counters%3A%3A%5Breset%28%29%5D%22+could+be+improved">report issue</a>]</span><div class="section" id="reset">
+<h3>reset()</h3>
+<pre class="literal-block">
+void <strong>reset</strong> ();
+</pre>
+<p>This member function set the counters to zero.</p>
+<a name="dht_storage_interface"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:class+dht_storage_interface&labels=documentation&body=Documentation+under+heading+%22class+dht_storage_interface%22+could+be+improved">report issue</a>]</span></div>
+</div>
+<div class="section" id="dht-storage-interface">
+<h2>dht_storage_interface</h2>
+<p>Declared in &quot;<a class="reference external" href="../include/libtorrent/kademlia/dht_storage.hpp">libtorrent/kademlia/dht_storage.hpp</a>&quot;</p>
+<p>The DHT storage interface is a pure virtual class that can
+be implemented to customize how the data for the DHT is stored.</p>
+<p>The default storage implementation uses three maps in RAM to save
+the peers, mutable and immutable items and it's designed to
+provide a fast and fully compliant behavior of the BEPs.</p>
+<p>libtorrent comes with one built-in storage implementation:
+<tt class="docutils literal">dht_default_storage</tt> (private non-accessible class). Its
+constructor function is called <a class="reference external" href="reference-DHT.html#dht_default_storage_constructor()">dht_default_storage_constructor()</a>.
+You should know that if this storage becomes full of DHT items,
+the current implementation could degrade in performance.</p>
+<pre class="literal-block">
+struct dht_storage_interface
+{
+   virtual void <strong>update_node_ids</strong> (std::vector&lt;node_id&gt; const&amp; ids) = 0;
+   virtual bool <strong>get_peers</strong> (sha1_hash const&amp; info_hash
+      , bool noseed, bool scrape, address const&amp; requester
+      , entry&amp; peers) const = 0;
+   virtual void <strong>announce_peer</strong> (sha1_hash const&amp; info_hash
+      , tcp::endpoint const&amp; endp
+      , string_view name, bool seed) = 0;
+   virtual bool <strong>get_immutable_item</strong> (sha1_hash const&amp; target
+      , entry&amp; item) const = 0;
+   virtual void <strong>put_immutable_item</strong> (sha1_hash const&amp; target
+      , span&lt;char const&gt; buf
+      , address const&amp; addr) = 0;
+   virtual bool <strong>get_mutable_item_seq</strong> (sha1_hash const&amp; target
+      , sequence_number&amp; seq) const = 0;
+   virtual bool <strong>get_mutable_item</strong> (sha1_hash const&amp; target
+      , sequence_number seq, bool force_fill
+      , entry&amp; item) const = 0;
+   virtual void <strong>put_mutable_item</strong> (sha1_hash const&amp; target
+      , span&lt;char const&gt; buf
+      , signature const&amp; sig
+      , sequence_number seq
+      , public_key const&amp; pk
+      , span&lt;char const&gt; salt
+      , address const&amp; addr) = 0;
+   virtual int <strong>get_infohashes_sample</strong> (entry&amp; item) = 0;
+   virtual void <strong>tick</strong> () = 0;
+   virtual dht_storage_counters <strong>counters</strong> () const = 0;
+};
+</pre>
+<a name="update_node_ids()"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_storage_interface%3A%3A%5Bupdate_node_ids%28%29%5D&labels=documentation&body=Documentation+under+heading+%22dht_storage_interface%3A%3A%5Bupdate_node_ids%28%29%5D%22+could+be+improved">report issue</a>]</span><div class="section" id="update-node-ids">
+<h3>update_node_ids()</h3>
+<pre class="literal-block">
+virtual void <strong>update_node_ids</strong> (std::vector&lt;node_id&gt; const&amp; ids) = 0;
+</pre>
+<p>This member function notifies the list of all node's ids
+of each DHT running inside libtorrent. It's advisable
+that the concrete implementation keeps a copy of this list
+for an eventual prioritization when deleting an element
+to make room for a new one.</p>
+<a name="get_peers()"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_storage_interface%3A%3A%5Bget_peers%28%29%5D&labels=documentation&body=Documentation+under+heading+%22dht_storage_interface%3A%3A%5Bget_peers%28%29%5D%22+could+be+improved">report issue</a>]</span></div>
+<div class="section" id="get-peers">
+<h3>get_peers()</h3>
+<pre class="literal-block">
+virtual bool <strong>get_peers</strong> (sha1_hash const&amp; info_hash
+      , bool noseed, bool scrape, address const&amp; requester
+      , entry&amp; peers) const = 0;
+</pre>
+<p>This function retrieve the peers tracked by the DHT
+corresponding to the given info_hash. You can specify if
+you want only seeds and/or you are scraping the data.</p>
+<p>For future implementers:
+If the torrent tracked contains a name, such a name
+must be stored as a string in peers[&quot;n&quot;]</p>
+<p>If the scrape parameter is true, you should fill these keys:</p>
+<blockquote>
+<dl class="docutils">
+<dt>peers[&quot;BFpe&quot;]</dt>
+<dd>with the standard bit representation of a
+256 bloom filter containing the downloaders</dd>
+<dt>peers[&quot;BFsd&quot;]</dt>
+<dd>with the standard bit representation of a
+256 bloom filter containing the seeders</dd>
+</dl>
+</blockquote>
+<p>If the scrape parameter is false, you should fill the
+key peers[&quot;values&quot;] with a list containing a subset of
+peers tracked by the given info_hash. Such a list should
+consider the value of <a class="reference external" href="reference-DHT.html#max_peers_reply">dht_settings::max_peers_reply</a>.
+If noseed is true only peers marked as no seed should be included.</p>
+<p>returns true if the maximum number of peers are stored
+for this info_hash.</p>
+<a name="announce_peer()"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_storage_interface%3A%3A%5Bannounce_peer%28%29%5D&labels=documentation&body=Documentation+under+heading+%22dht_storage_interface%3A%3A%5Bannounce_peer%28%29%5D%22+could+be+improved">report issue</a>]</span></div>
+<div class="section" id="announce-peer">
+<h3>announce_peer()</h3>
+<pre class="literal-block">
+virtual void <strong>announce_peer</strong> (sha1_hash const&amp; info_hash
+      , tcp::endpoint const&amp; endp
+      , string_view name, bool seed) = 0;
+</pre>
+<p>This function is named announce_peer for consistency with the
+upper layers, but has nothing to do with networking. Its only
+responsibility is store the peer in such a way that it's returned
+in the <a class="reference external" href="reference-Bencoding.html#entry">entry</a> with the lookup_peers.</p>
+<p>The <tt class="docutils literal">name</tt> parameter is the name of the torrent if provided in
+the announce_peer DHT message. The length of this value should
+have a maximum length in the final storage. The default
+implementation truncate the value for a maximum of 50 characters.</p>
+<a name="get_immutable_item()"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_storage_interface%3A%3A%5Bget_immutable_item%28%29%5D&labels=documentation&body=Documentation+under+heading+%22dht_storage_interface%3A%3A%5Bget_immutable_item%28%29%5D%22+could+be+improved">report issue</a>]</span></div>
+<div class="section" id="get-immutable-item">
+<h3>get_immutable_item()</h3>
+<pre class="literal-block">
+virtual bool <strong>get_immutable_item</strong> (sha1_hash const&amp; target
+      , entry&amp; item) const = 0;
+</pre>
+<p>This function retrieves the immutable item given its target hash.</p>
+<p>For future implementers:
+The value should be returned as an <a class="reference external" href="reference-Bencoding.html#entry">entry</a> in the key item[&quot;v&quot;].</p>
+<p>returns true if the item is found and the data is returned
+inside the (<a class="reference external" href="reference-Bencoding.html#entry">entry</a>) out parameter item.</p>
+<a name="put_immutable_item()"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_storage_interface%3A%3A%5Bput_immutable_item%28%29%5D&labels=documentation&body=Documentation+under+heading+%22dht_storage_interface%3A%3A%5Bput_immutable_item%28%29%5D%22+could+be+improved">report issue</a>]</span></div>
+<div class="section" id="put-immutable-item">
+<h3>put_immutable_item()</h3>
+<pre class="literal-block">
+virtual void <strong>put_immutable_item</strong> (sha1_hash const&amp; target
+      , span&lt;char const&gt; buf
+      , address const&amp; addr) = 0;
+</pre>
+<p>Store the item's data. This layer is only for storage.
+The authentication of the item is performed by the upper layer.</p>
+<p>For implementers:
+This data can be stored only if the target is not already
+present. The implementation should consider the value of
+<a class="reference external" href="reference-DHT.html#max_dht_items">dht_settings::max_dht_items</a>.</p>
+<a name="get_mutable_item_seq()"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_storage_interface%3A%3A%5Bget_mutable_item_seq%28%29%5D&labels=documentation&body=Documentation+under+heading+%22dht_storage_interface%3A%3A%5Bget_mutable_item_seq%28%29%5D%22+could+be+improved">report issue</a>]</span></div>
+<div class="section" id="get-mutable-item-seq">
+<h3>get_mutable_item_seq()</h3>
+<pre class="literal-block">
+virtual bool <strong>get_mutable_item_seq</strong> (sha1_hash const&amp; target
+      , sequence_number&amp; seq) const = 0;
+</pre>
+<p>This function retrieves the sequence number of a mutable item.</p>
+<p>returns true if the item is found and the data is returned
+inside the out parameter seq.</p>
+<a name="get_mutable_item()"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_storage_interface%3A%3A%5Bget_mutable_item%28%29%5D&labels=documentation&body=Documentation+under+heading+%22dht_storage_interface%3A%3A%5Bget_mutable_item%28%29%5D%22+could+be+improved">report issue</a>]</span></div>
+<div class="section" id="get-mutable-item">
+<h3>get_mutable_item()</h3>
+<pre class="literal-block">
+virtual bool <strong>get_mutable_item</strong> (sha1_hash const&amp; target
+      , sequence_number seq, bool force_fill
+      , entry&amp; item) const = 0;
+</pre>
+<p>This function retrieves the mutable stored in the DHT.</p>
+<p>For implementers:
+The item sequence should be stored in the key item[&quot;seq&quot;].
+if force_fill is true or (0 &lt;= seq and seq &lt; item[&quot;seq&quot;])
+the following keys should be filled
+item[&quot;v&quot;] - with the value no encoded.
+item[&quot;sig&quot;] - with a string representation of the signature.
+item[&quot;k&quot;] - with a string representation of the public key.</p>
+<p>returns true if the item is found and the data is returned
+inside the (<a class="reference external" href="reference-Bencoding.html#entry">entry</a>) out parameter item.</p>
+<a name="put_mutable_item()"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_storage_interface%3A%3A%5Bput_mutable_item%28%29%5D&labels=documentation&body=Documentation+under+heading+%22dht_storage_interface%3A%3A%5Bput_mutable_item%28%29%5D%22+could+be+improved">report issue</a>]</span></div>
+<div class="section" id="put-mutable-item">
+<h3>put_mutable_item()</h3>
+<pre class="literal-block">
+virtual void <strong>put_mutable_item</strong> (sha1_hash const&amp; target
+      , span&lt;char const&gt; buf
+      , signature const&amp; sig
+      , sequence_number seq
+      , public_key const&amp; pk
+      , span&lt;char const&gt; salt
+      , address const&amp; addr) = 0;
+</pre>
+<p>Store the item's data. This layer is only for storage.
+The authentication of the item is performed by the upper layer.</p>
+<p>For implementers:
+The sequence number should be checked if the item is already
+present. The implementation should consider the value of
+<a class="reference external" href="reference-DHT.html#max_dht_items">dht_settings::max_dht_items</a>.</p>
+<a name="get_infohashes_sample()"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_storage_interface%3A%3A%5Bget_infohashes_sample%28%29%5D&labels=documentation&body=Documentation+under+heading+%22dht_storage_interface%3A%3A%5Bget_infohashes_sample%28%29%5D%22+could+be+improved">report issue</a>]</span></div>
+<div class="section" id="get-infohashes-sample">
+<h3>get_infohashes_sample()</h3>
+<pre class="literal-block">
+virtual int <strong>get_infohashes_sample</strong> (entry&amp; item) = 0;
+</pre>
+<p>This function retrieves a sample info-hashes</p>
+<p>For implementers:
+The info-hashes should be stored in [&quot;samples&quot;] (N x 20 bytes).
+the following keys should be filled
+item[&quot;interval&quot;] - the subset refresh interval in seconds.
+item[&quot;num&quot;] - number of info-hashes in storage.</p>
+<p>Internally, this function is allowed to lazily evaluate, cache
+and modify the actual sample to put in <tt class="docutils literal">item</tt></p>
+<p>returns the number of info-hashes in the sample.</p>
+<a name="tick()"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_storage_interface%3A%3A%5Btick%28%29%5D&labels=documentation&body=Documentation+under+heading+%22dht_storage_interface%3A%3A%5Btick%28%29%5D%22+could+be+improved">report issue</a>]</span></div>
+<div class="section" id="tick">
+<h3>tick()</h3>
+<pre class="literal-block">
+virtual void <strong>tick</strong> () = 0;
+</pre>
+<p>This function is called periodically (non-constant frequency).</p>
+<p>For implementers:
+Use this functions for expire peers or items or any other
+storage cleanup.</p>
+<a name="counters()"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_storage_interface%3A%3A%5Bcounters%28%29%5D&labels=documentation&body=Documentation+under+heading+%22dht_storage_interface%3A%3A%5Bcounters%28%29%5D%22+could+be+improved">report issue</a>]</span></div>
+<div class="section" id="counters">
+<h3>counters()</h3>
+<pre class="literal-block">
+virtual dht_storage_counters <strong>counters</strong> () const = 0;
+</pre>
+<p>return stats counters for the store</p>
+<a name="dht_state"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:class+dht_state&labels=documentation&body=Documentation+under+heading+%22class+dht_state%22+could+be+improved">report issue</a>]</span></div>
+</div>
+<div class="section" id="dht-state">
+<h2>dht_state</h2>
+<p>Declared in &quot;<a class="reference external" href="../include/libtorrent/kademlia/dht_state.hpp">libtorrent/kademlia/dht_state.hpp</a>&quot;</p>
+<p>This structure helps to store and load the state
+of the <tt class="docutils literal">dht_tracker</tt>.
+At this moment the library is only a dual stack
+implementation of the DHT. See <a class="reference external" href="https://www.bittorrent.org/beps/bep_0032.html">BEP 32</a></p>
+<pre class="literal-block">
+struct dht_state
+{
+   void <strong>clear</strong> ();
+
+   node_ids_t nids;
+   std::vector&lt;udp::endpoint&gt; nodes;
+   std::vector&lt;udp::endpoint&gt; nodes6;
+};
+</pre>
+<a name="nodes"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_state%3A%3A%5Bnodes%5D&labels=documentation&body=Documentation+under+heading+%22dht_state%3A%3A%5Bnodes%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>nodes</dt>
+<dd>the bootstrap nodes saved from the buckets node</dd>
+</dl>
+<a name="nodes6"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_state%3A%3A%5Bnodes6%5D&labels=documentation&body=Documentation+under+heading+%22dht_state%3A%3A%5Bnodes6%5D%22+could+be+improved">report issue</a>]</span><dl class="docutils">
+<dt>nodes6</dt>
+<dd>the bootstrap nodes saved from the IPv6 buckets node</dd>
+</dl>
+<a name="dht_default_storage_constructor()"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:dht_default_storage_constructor%28%29&labels=documentation&body=Documentation+under+heading+%22dht_default_storage_constructor%28%29%22+could+be+improved">report issue</a>]</span></div>
+<div class="section" id="dht-default-storage-constructor">
+<h2>dht_default_storage_constructor()</h2>
+<p>Declared in &quot;<a class="reference external" href="../include/libtorrent/kademlia/dht_storage.hpp">libtorrent/kademlia/dht_storage.hpp</a>&quot;</p>
+<pre class="literal-block">
+std::unique_ptr&lt;dht_storage_interface&gt; <strong>dht_default_storage_constructor</strong> (
+   dht_settings const&amp; settings);
+</pre>
+<p>constructor for the default DHT storage. The DHT storage is responsible
+for maintaining peers and mutable and immutable items announced and
+stored/put to the DHT node.</p>
+<a name="sign_mutable_item()"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:sign_mutable_item%28%29&labels=documentation&body=Documentation+under+heading+%22sign_mutable_item%28%29%22+could+be+improved">report issue</a>]</span></div>
+<div class="section" id="sign-mutable-item">
+<h2>sign_mutable_item()</h2>
+<p>Declared in &quot;<a class="reference external" href="../include/libtorrent/kademlia/item.hpp">libtorrent/kademlia/item.hpp</a>&quot;</p>
+<pre class="literal-block">
+signature <strong>sign_mutable_item</strong> (
+   span&lt;char const&gt; v
+   , span&lt;char const&gt; salt
+   , sequence_number seq
+   , public_key const&amp; pk
+   , secret_key const&amp; sk);
+</pre>
+<p>given a byte range <tt class="docutils literal">v</tt> and an optional byte range <tt class="docutils literal">salt</tt>, a
+sequence number, public key <tt class="docutils literal">pk</tt> (must be 32 bytes) and a secret key
+<tt class="docutils literal">sk</tt> (must be 64 bytes), this function produces a signature which
+is written into a 64 byte buffer pointed to by <tt class="docutils literal">sig</tt>. The caller
+is responsible for allocating the destination buffer that's passed in
+as the <tt class="docutils literal">sig</tt> argument. Typically it would be allocated on the stack.</p>
+<a name="announce_flags_t"></a><span style="float:right;">[<a style="color:blue;" href="http://github.com/arvidn/libtorrent/issues/new?title=docs:announce_flags_t&labels=documentation&body=Documentation+under+heading+%22announce_flags_t%22+could+be+improved">report issue</a>]</span></div>
+<div class="section" id="announce-flags-t">
+<h2>announce_flags_t</h2>
+<p>Declared in &quot;<a class="reference external" href="../include/libtorrent/kademlia/announce_flags.hpp">libtorrent/kademlia/announce_flags.hpp</a>&quot;</p>
+<a name="announce_flags_t::seed"></a><dl class="docutils">
+<dt>seed</dt>
+<dd>announce to DHT as a seed</dd>
+</dl>
+<a name="announce_flags_t::implied_port"></a><dl class="docutils">
+<dt>implied_port</dt>
+<dd>announce to DHT with the implied-port flag set. This tells the network to use
+your source UDP port as your listen port, rather than the one specified in
+the message. This may improve the chances of traversing NATs when using uTP.</dd>
+</dl>
+<a name="announce_flags_t::ssl_torrent"></a><dl class="docutils">
+<dt>ssl_torrent</dt>
+<dd>Specify the port number for the SSL listen socket in the DHT announce.</dd>
+</dl>
+</div>
+</div>
+
+    </div>
+    </div>
+    <div id="gradient"></div>
+    <div id="footer">
+    <table>
+    <tr>
+      <td><a href="index.html">home</a></td>
+      <td><a href="https://blog.libtorrent.org">blog</a></td>
+      <td><a href="utp.html">uTP</a></td>
+    </tr>
+    <tr>
+      <td><a href="https://sourceforge.net/projects/libtorrent/files/libtorrent/">download</a></td>
+      <td><a href="reference.html">documentation</a></td>
+      <td><a href="dht_store.html">DHT put extension</a></td>
+    </tr>
+    <tr>
+      <td><a href="https://sourceforge.net/projects/libtorrent/files/py-libtorrent/">python bindings</a></td>
+      <td><a href="features.html">features</a></td>
+      <td><a href="dht_sec.html">DHT security extension</a></td>
+    </tr>
+    <tr>
+      <td><a href="https://sourceforge.net/p/libtorrent/mailman/libtorrent-discuss/">mailing list archive</a></td>
+      <td><a href="contributing.html">contributing</a></td>
+      <td><a href="streaming.html">streaming</a></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/arvidn/libtorrent/issues">report a bug</a></td>
+      <td><a href="building.html">building</a></td>
+      <td><a href="bittorrent.pdf">bittorrent slides</a></td>
+    </tr>
+    </table>
+    </div>
+    <div id="filler"></div>
+
+</div>
+</body>
+</html>
