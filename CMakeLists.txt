@@ -16,7 +16,7 @@ add_subdirectory(SkyMedia)
 add_subdirectory(SkyTorrent)
 add_subdirectory(SkyWeb)
 
-export(TARGETS SkyCore SkyBackend SkyGui SkyMedia SkyTorrent SkyWeb NAMESPACE SkyFramework:: FILE SkyFrameworkTargets.cmake)
+export(TARGETS SkyCore SkyBackend SkyGui SkyMedia SkyTorrent SkyWeb QuaZip torrent-rasterbar NAMESPACE SkyFramework:: FILE SkyFrameworkTargets.cmake)
 
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file(
