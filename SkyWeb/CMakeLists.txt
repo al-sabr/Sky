@@ -24,10 +24,8 @@ include(files.cmake)
 set(SkyWeb_TARGET_LIBRARIES)
 
 if(QT_DEFAULT_MAJOR_VERSION GREATER 4)
-  message("QT_DEFAULT_MAJOR_VERSION = ${QT_DEFAULT_MAJOR_VERSION}")
   list(APPEND SkyWeb_TARGET_LIBRARIES
       Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Qml Qt5::WebEngineWidgets)
-  message("SkyWeb_TARGET_LIBRARIES = ${SkyWeb_TARGET_LIBRARIES}")
 else()
   list(APPEND SkyWeb_TARGET_LIBRARIES QT_LIBRARIES)
 endif()
@@ -42,12 +40,6 @@ if(NOT DEFINED BUILD_SHARED_LIBS)
 else()
   set(TYPE_OF_LIBRARY "SHARED")
 endif()
-
-message("")
-message("CPP = ${CPP}")
-message("")
-message("HPP = ${HPP}")
-message("")
 
 add_library(${PROJECT_NAME} ${TYPE_OF_LIBRARY} ${CPP} ${HPP})
 

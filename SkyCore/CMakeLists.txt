@@ -23,11 +23,9 @@ include(files.cmake)
 set(SkyCore_TARGET_LIBRARIES)
 
 if(QT_DEFAULT_MAJOR_VERSION GREATER 4)
-  message("QT_DEFAULT_MAJOR_VERSION = ${QT_DEFAULT_MAJOR_VERSION}")
   list(APPEND SkyCore_TARGET_LIBRARIES
     Qt5::Core Qt5::Gui Qt5::Script Qt5::ScriptTools Qt5::Network Qt5::Widgets Qt5::Qml
     Qt5::Xml Qt5::XmlPatterns)
-  message("SkyCore_TARGET_LIBRARIES = ${SkyCore_TARGET_LIBRARIES}")
 else()
   list(APPEND SkyCore_TARGET_LIBRARIES QT_LIBRARIES)
 endif()
