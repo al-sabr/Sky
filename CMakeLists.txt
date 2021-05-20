@@ -8,6 +8,9 @@ else()
   set(TYPE_OF_LIBRARY "SHARED")
 endif()
   
+include(externals.cmake)
+
+#add_subdirectory(vlc)
 add_subdirectory(libtorrent)
 add_subdirectory(SkyCore)
 add_subdirectory(SkyBackend)
