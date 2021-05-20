@@ -7,7 +7,8 @@ if(NOT DEFINED BUILD_SHARED_LIBS)
 else()
   set(TYPE_OF_LIBRARY "SHARED")
 endif()
-  
+
+#include(downloads.cmake)
 include(externals.cmake)
 
 #add_subdirectory(vlc)
