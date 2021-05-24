@@ -20,21 +20,29 @@
 */
 //=================================================================================================
 
-#ifndef WMOCKAPPLICATION_H
-#define WMOCKAPPLICATION_H
-
-// Sk includes
-#include <WControllerApplication>
-#include <SkyGuiExports.h>
+#include "WMockApplication.h"
 
 #ifndef SK_NO_APPLICATION
 
-class SKY_GUI_EXPORT WMockApplication
-{
-public:
-    static void create();
+// Qt includes
+#ifdef QT_4
+#include <QDeclarativeComponent>
+#else
+#include <QQmlComponent>
+#endif
 
-};
+//-------------------------------------------------------------------------------------------------
+// Static functions
+//-------------------------------------------------------------------------------------------------
+
+/* static */
+void WMockApplication::create()
+{
+
+    W_CREATE_CONTROLLER(WControllerApplication);
+
+    sk->d_func()->initApplication(application, type, true);
+
+}
 
 #endif // SK_NO_APPLICATION
-#endif // WMOCKAPPLICATION_H

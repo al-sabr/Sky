@@ -40,6 +40,7 @@ set(CPP
 	src/kernel/WAbstractTabs.cpp
 	src/kernel/WActionCue.cpp
 	src/kernel/WApplication.cpp
+	src/kernel/WMockApplication.cpp
 	src/kernel/WInputCue.cpp
 	
 	src/media/WAbstractBackend.cpp
@@ -166,6 +167,7 @@ set( HPP
 	include/kernel/WActionCue_p.h
 	include/kernel/WApplication
 	include/kernel/WApplication.h
+	include/kernel/WMockApplication.h
 	include/kernel/WInputCue
 	include/kernel/WInputCue.h
 	include/kernel/WInputCue_p.h
