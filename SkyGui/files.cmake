@@ -167,6 +167,7 @@ set( HPP
 	include/kernel/WActionCue_p.h
 	include/kernel/WApplication
 	include/kernel/WApplication.h
+	include/kernel/WMockApplication
 	include/kernel/WMockApplication.h
 	include/kernel/WInputCue
 	include/kernel/WInputCue.h
