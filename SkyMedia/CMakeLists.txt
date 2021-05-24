@@ -46,7 +46,7 @@ add_library(${PROJECT_NAME} ${TYPE_OF_LIBRARY} ${CPP} ${HPP})
 
 set(TORRENT_LINKING_SHARED ON)
 
-target_link_libraries(${PROJECT_NAME} SkyCore SkyGui libvlc libvlccore) # ${libvlc_LIBRARIES} ${libvlccore_LIBRARIES}
+target_link_libraries(${PROJECT_NAME} SkyCore SkyGui ${LIBVLC_LIBRARY} ${LIBVLCCORE_LIBRARY} ) # ${libvlc_LIBRARIES} ${libvlccore_LIBRARIES}
 
 set(target_folders_public
   ${PROJECT_BINARY_DIR}
