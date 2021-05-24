@@ -33,6 +33,7 @@
 
 // Sk includes
 #include <WControllerView>
+#include <WMockApplication>
 
 // 3rdparty includes
 #include <qtsingleapplication>
