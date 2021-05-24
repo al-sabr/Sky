@@ -12,10 +12,11 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 # 3rd party dependencies
 #
 find_package(Qt5 COMPONENTS
-  Core Gui Widgets Qml Script ScriptTools
-  Network Widgets Xml XmlPatterns
+  Core Network Gui Widgets Qml Xml XmlPatterns #Script ScriptTools
+  #Network Widgets  
   REQUIRED
 )
+
 set(SK_NOSCRIPT TRUE)
 
 include(files.cmake)
@@ -24,8 +25,8 @@ set(SkyCore_TARGET_LIBRARIES)
 
 if(QT_DEFAULT_MAJOR_VERSION GREATER 4)
   list(APPEND SkyCore_TARGET_LIBRARIES
-    Qt5::Core Qt5::Gui Qt5::Script Qt5::ScriptTools Qt5::Network Qt5::Widgets Qt5::Qml
-    Qt5::Xml Qt5::XmlPatterns)
+    Qt5::Core Qt5::Network Qt5::Gui Qt5::Widgets Qt5::Qml Qt5::Xml Qt5::XmlPatterns #Qt5::Script Qt5::ScriptTools
+    )
 else()
   list(APPEND SkyCore_TARGET_LIBRARIES QT_LIBRARIES)
 endif()
@@ -92,23 +93,5 @@ generate_export_header(${PROJECT_NAME}
   EXPORT_MACRO_NAME "SKY_CORE_EXPORT"
   EXPORT_FILE_NAME "SkyCoreExports.h"
   )
-  #[[
-install(
-  TARGETS
-    ${PROJECT_NAME}
-  ARCHIVE
-    DESTINATION ${INSTALL_LIBDIR}
-    COMPONENT lib
-  RUNTIME
-    DESTINATION ${INSTALL_BINDIR}
-    COMPONENT bin
-  LIBRARY
-    DESTINATION ${INSTALL_LIBDIR}
-    COMPONENT lib
-  PUBLIC_HEADER
-    DESTINATION ${INSTALL_INCLUDEDIR}/src
-    COMPONENT dev
-  )
-  ]]
   
 add_subdirectory(externals)

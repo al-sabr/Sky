@@ -15,7 +15,7 @@ endif()
 # 3rd party dependencies
 #
 find_package(Qt5 COMPONENTS
-  Core Gui Widgets Qml Widgets Quick Svg OpenGL ${extras}
+  Core Quick Svg ${extras} # Gui Widgets Qml Widgets   OpenGL
   REQUIRED
 )
 
@@ -25,8 +25,7 @@ set(SkyGui_TARGET_LIBRARIES)
 
 if(QT_DEFAULT_MAJOR_VERSION GREATER 4)
   list(APPEND SkyGui_TARGET_LIBRARIES
-    Qt5::Core Qt5::Gui Qt5::Widgets Qt5::WidgetsPrivate Qt5::Qml
-    Qt5::Quick Qt5::QuickPrivate Qt5::Svg)
+    Qt5::Core Qt5::Quick Qt5::QuickPrivate Qt5::Svg) # Qt5::Gui Qt5::Widgets Qt5::WidgetsPrivate Qt5::Qml Qt5::Quick Qt5::QuickPrivate 
 else()
   list(APPEND SkyGui_TARGET_LIBRARIES QT_LIBRARIES)
 endif()

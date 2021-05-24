@@ -14,10 +14,7 @@ endif()
 #
 # 3rd party dependencies
 #
-find_package(Qt5 COMPONENTS
-  Core Quick Network ${extras}
-  REQUIRED
-)
+find_package(Qt5 COMPONENTS Core)
 
 include(files.cmake)
 
@@ -25,7 +22,7 @@ set(SkyTorrent_TARGET_LIBRARIES)
 
 if(QT_DEFAULT_MAJOR_VERSION GREATER 4)
   list(APPEND SkyTorrent_TARGET_LIBRARIES
-    Qt5::Core Qt5::Network Qt5::Quick Qt5::QuickPrivate)
+     ) # Qt5::Core Qt5::Network Qt5::Quick Qt5::QuickPrivate
 else()
   list(APPEND SkyTorrent_TARGET_LIBRARIES QT_LIBRARIES)
 endif()

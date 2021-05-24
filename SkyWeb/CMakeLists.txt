@@ -15,7 +15,7 @@ endif()
 # 3rd party dependencies
 #
 find_package(Qt5 COMPONENTS
-  Core Gui Qml Widgets WebEngineWidgets ${extras}
+  WebEngineWidgets ${extras} #Core Gui Qml Widgets 
   CONFIG REQUIRED
 )
 
@@ -25,7 +25,7 @@ set(SkyWeb_TARGET_LIBRARIES)
 
 if(QT_DEFAULT_MAJOR_VERSION GREATER 4)
   list(APPEND SkyWeb_TARGET_LIBRARIES
-      Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Qml Qt5::WebEngineWidgets)
+      Qt5::WebEngineWidgets) #Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Qml 
 else()
   list(APPEND SkyWeb_TARGET_LIBRARIES QT_LIBRARIES)
 endif()

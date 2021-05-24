@@ -12,10 +12,9 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 # 3rd party dependencies
 #
 find_package(Qt5 COMPONENTS
-  Core Gui Widgets Qml Script ScriptTools
-  Network Widgets Xml XmlPatterns
+  Core
   REQUIRED
-)
+) #Gui Widgets Qml Script ScriptTools Network Widgets Xml XmlPatterns
 set(SK_NOSCRIPT TRUE)
 
 include(files.cmake)
@@ -24,8 +23,7 @@ set(SkyBackend_TARGET_LIBRARIES)
 
 if(QT_DEFAULT_MAJOR_VERSION GREATER 4)
   list(APPEND SkyBackend_TARGET_LIBRARIES
-    Qt5::Core Qt5::Gui Qt5::Script Qt5::ScriptTools Qt5::Network Qt5::Widgets Qt5::Qml
-    Qt5::Xml Qt5::XmlPatterns)
+    Qt5::Core )#Qt5::Gui Qt5::Script Qt5::ScriptTools Qt5::Network Qt5::Widgets Qt5::Qml Qt5::Xml Qt5::XmlPatterns
 else()
   list(APPEND SkyBackend_TARGET_LIBRARIES QT_LIBRARIES)
 endif()
