@@ -36,7 +36,7 @@
 //-------------------------------------------------------------------------------------------------
 
 /* static */
-void WMockApplication::create()
+void WMockApplication::create(QCoreApplication * application, WControllerApplication::Type type)
 {
 
     W_CREATE_CONTROLLER(WControllerApplication);

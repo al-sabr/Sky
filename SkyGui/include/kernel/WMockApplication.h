@@ -32,7 +32,7 @@
 class SKY_GUI_EXPORT WMockApplication
 {
 public:
-    static void create();
+    static void create(QCoreApplication* application, WControllerApplication::Type type);
 
 };
 

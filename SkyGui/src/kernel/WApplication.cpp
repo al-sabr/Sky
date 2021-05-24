@@ -62,7 +62,7 @@ QApplication * WApplication::create(int & argc, char ** argv, Sk::Type type)
 
     if (application == NULL) return NULL;
 
-    WMockApplication::create();
+    WMockApplication::create(application, type);
 
     //---------------------------------------------------------------------------------------------
     // Controllers
