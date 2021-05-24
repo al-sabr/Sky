@@ -414,6 +414,7 @@ private:
     friend class WControllerPrivate;
     friend class WCoreApplication;
     friend class WApplication;
+    friend class WMockApplication;
 };
 
 #include <private/controllers/WControllerApplication_p>
