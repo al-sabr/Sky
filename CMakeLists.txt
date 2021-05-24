@@ -8,8 +8,13 @@ else()
   set(TYPE_OF_LIBRARY "SHARED")
 endif()
 
-#include(downloads.cmake)
-include(externals.cmake)
+set(LIBVLC_LIBRARY "" CACHE FILEPATH "Path of libVLC")
+set(LIBVLCCORE_LIBRARY "" CACHE FILEPATH "Path of libVLC Core")
+set(LIBVLC_INCLUDE_DIR "" CACHE PATH "Path of libVLC Includes")
+
+if(LIBVLC_LIBRARY AND LIBVLCCORE_LIBRARY)
+  include(externals.cmake)
+endif()
 
 #add_subdirectory(vlc)
 add_subdirectory(libtorrent)
@@ -19,6 +24,13 @@ add_subdirectory(SkyGui)
 add_subdirectory(SkyMedia)
 add_subdirectory(SkyTorrent)
 add_subdirectory(SkyWeb)
+
+#include(downloads.cmake)
+
+
+
+#set(LIBVLC_INCLUDE_DIR ${SkyMedia_DIR}/include/vlc)
+#set(LIBVLC_LIBRARY "${vlc_LOCATION}/libvlc.lib")
 
 export(TARGETS SkyCore SkyBackend SkyGui SkyMedia SkyTorrent SkyWeb QuaZip torrent-rasterbar NAMESPACE SkyFramework:: FILE SkyFrameworkTargets.cmake)
 

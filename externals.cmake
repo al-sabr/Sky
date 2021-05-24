@@ -3,16 +3,16 @@ set(vlc_DESTINATION ${PROJECT_BINARY_DIR})
 
 add_library(libvlc STATIC IMPORTED)
 set_property(TARGET libvlc PROPERTY
-IMPORTED_LOCATION "${vlc_LOCATION}/libvlc.lib")
+IMPORTED_LOCATION ${LIBVLC_LIBRARY})
 
 add_library(libvlccore STATIC IMPORTED)
 set_property(TARGET libvlccore PROPERTY
-IMPORTED_LOCATION "${vlc_LOCATION}/libvlccore.lib")
+IMPORTED_LOCATION ${LIBVLCCORE_LIBRARY})
 
-file(COPY ${vlc_LOCATION}/libvlc.lib
+file(COPY ${LIBVLC_LIBRARY}
   DESTINATION ${vlc_DESTINATION}
 )
-file(COPY ${vlc_LOCATION}/libvlccore.lib
+file(COPY ${LIBVLCCORE_LIBRARY}
   DESTINATION ${vlc_DESTINATION}
 )
 
