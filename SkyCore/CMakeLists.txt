@@ -43,8 +43,6 @@ add_library(${PROJECT_NAME} SHARED ${CPP} ${HPP})
 
 target_link_libraries(${PROJECT_NAME} ${SkyCore_TARGET_LIBRARIES})
 
-set_target_properties(${PROJECT_NAME} PROPERTIES VS_GLOBAL_VcpkgEnabled true)
-
 set(target_folders_public
   ${PROJECT_BINARY_DIR}
   include
@@ -83,6 +81,7 @@ add_definitions(-DQT_${QT_DEFAULT_MAJOR_VERSION} -DQT_LATEST -DSK_NO_SCRIPT) #-D
 if(WIN32)
   add_definitions(-DSKY_WIN_NATIVE -D_UNICODE -DUNICODE)
   target_compile_definitions (${PROJECT_NAME} PRIVATE -D_UNICODE -DUNICODE)
+  set_target_properties(${PROJECT_NAME} PROPERTIES VS_GLOBAL_VcpkgEnabled true)
 endif()
 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_11)
