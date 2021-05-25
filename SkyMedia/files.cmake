@@ -9,12 +9,6 @@ set(CPP
 
 )
 
-if(QT_DEFAULT_MAJOR_VERSION EQUAL 5)
-	list(APPEND CPP
-		
-	)
-endif()
-
 set(HPP
 
 	include/3rdparty/vlc/mmxRgb.h
@@ -47,10 +41,3 @@ set(HPP
 	include/private/vlc/WVlcPlayer_p
 
 )
-
-if(QT_DEFAULT_MAJOR_VERSION EQUAL 5)
-	list(APPEND HPP
-
-	)
-endif()
-
