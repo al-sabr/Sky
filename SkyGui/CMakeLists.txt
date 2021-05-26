@@ -2,12 +2,6 @@ cmake_minimum_required(VERSION 3.18)
 
 project(SkyGui)
 
-set(CMAKE_AUTOMOC TRUE)
-set(CMAKE_DEBUG_POSTFIX d)
-set(CMAKE_CXX_VISIBILITY_PRESET hidden)
-set(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
 if(WIN32)
   set(extras WinExtras)
 endif()
@@ -36,13 +30,7 @@ endif()
 
 set(QT_USE_QTOPENGL TRUE)
 
-if(NOT DEFINED BUILD_SHARED_LIBS)
-  set(TYPE_OF_LIBRARY "STATIC")
-else()
-  set(TYPE_OF_LIBRARY "SHARED")
-endif()
-
-add_library(${PROJECT_NAME} SHARED ${CPP} ${HPP})
+add_library(${PROJECT_NAME} ${TYPE_OF_LIBRARY} ${CPP} ${HPP})
 
 target_link_libraries(${PROJECT_NAME} ${SkyGui_TARGET_LIBRARIES} SkyCore)
 

@@ -32,18 +32,7 @@ endif()
 
 list(APPEND SkyWeb_TARGET_LIBRARIES)
 
-set(QT_USE_QTOPENGL TRUE)
-set(BUILD_SHARED_LIBS ON)
-
-if(NOT DEFINED BUILD_SHARED_LIBS)
-  set(TYPE_OF_LIBRARY "STATIC")
-else()
-  set(TYPE_OF_LIBRARY "SHARED")
-endif()
-
 add_library(${PROJECT_NAME} ${TYPE_OF_LIBRARY} ${CPP} ${HPP})
-
-set(TORRENT_LINKING_SHARED ON)
 
 target_link_libraries(${PROJECT_NAME} ${SkyWeb_TARGET_LIBRARIES} SkyCore)
 
@@ -58,7 +47,7 @@ set(target_folders_private
   include/private/io
 )
 
-include_directories(${target_folders_public} ${target_folders_private})
+#include_directories(${target_folders_public} ${target_folders_private})
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_public})
 target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_private})
