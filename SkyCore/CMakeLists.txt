@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.18)
 
-project(SkyCore)
+project(SkyCore VERSION 1.0.0)
 
 #
 # 3rd party dependencies
@@ -28,6 +28,7 @@ endif()
 list(APPEND SkyCore_TARGET_LIBRARIES QuaZip)
 
 add_library(${PROJECT_NAME} ${TYPE_OF_LIBRARY} ${CPP} ${HPP})
+add_library(${PROJECT_NAMESPACE}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 target_link_libraries(${PROJECT_NAME} PUBLIC ${SkyCore_TARGET_LIBRARIES})
 
@@ -45,7 +46,7 @@ set(target_folders_public
   
 )
 set(target_folders_private
-  ${PROJECT_BINARY_DIR}
+  #${PROJECT_BINARY_DIR}
   include
   include/private
   include/private/controllers
@@ -60,7 +61,7 @@ set(target_folders_private
 #include_directories(${target_folders_public} ${target_folders_private})
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_public})
-target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_private})
+target_include_directories(${PROJECT_NAME} PRIVATE ${target_folders_private})
 
 add_definitions(-DQT_${QT_DEFAULT_MAJOR_VERSION} -DQT_LATEST -DSK_NO_SCRIPT) #-DQT_QTLOCKEDFILE_IMPORT
 
@@ -82,3 +83,25 @@ generate_export_header(${PROJECT_NAME}
   )
   
 add_subdirectory(externals)
+
+install(TARGETS ${PROJECT_NAME}
+        EXPORT ${PROJECT_NAME}Targets
+        LIBRARY DESTINATION lib
+        ARCHIVE DESTINATION lib
+        RUNTIME DESTINATION bin
+        )
+
+write_basic_package_version_file(
+    ${PROJECT_NAME}ConfigVersion.cmake
+    VERSION ${PACKAGE_VERSION}
+    COMPATIBILITY AnyNewerVersion
+)
+
+install(FILES ${HPP} DESTINATION include/${PROJECT_NAME})
+
+install(EXPORT ${PROJECT_NAME}Targets
+  FILE ${PROJECT_NAME}Targets.cmake
+  NAMESPACE ${PROJECT_NAMESPACE}::
+  DESTINATION lib/CMake/
+)
+
