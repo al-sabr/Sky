@@ -19,7 +19,7 @@ set(SkyCore_TARGET_LIBRARIES)
 
 if(QT_DEFAULT_MAJOR_VERSION GREATER 4)
   list(APPEND SkyCore_TARGET_LIBRARIES
-    Qt5::Core Qt5::Network Qt5::Gui Qt5::Widgets Qt5::Qml Qt5::Xml Qt5::XmlPatterns #Qt5::Script Qt5::ScriptTools
+    Qt5::Core Qt5::Xml Qt5::XmlPatterns Qt5::Gui Qt5::Network Qt5::Qml # Qt5::Widgets  #Qt5::Script Qt5::ScriptTools
     )
 else()
   list(APPEND SkyCore_TARGET_LIBRARIES QT_LIBRARIES)
@@ -30,7 +30,7 @@ list(APPEND SkyCore_TARGET_LIBRARIES QuaZip)
 add_library(${PROJECT_NAME} ${TYPE_OF_LIBRARY} ${CPP} ${HPP})
 add_library(${PROJECT_NAMESPACE}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
-target_link_libraries(${PROJECT_NAME} PUBLIC ${SkyCore_TARGET_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} PRIVATE ${SkyCore_TARGET_LIBRARIES} )
 
 set(target_folders_public
   ${PROJECT_BINARY_DIR}
@@ -46,7 +46,7 @@ set(target_folders_public
   
 )
 set(target_folders_private
-  #${PROJECT_BINARY_DIR}
+  ${PROJECT_BINARY_DIR}
   include
   include/private
   include/private/controllers
@@ -61,8 +61,8 @@ set(target_folders_private
 #include_directories(${target_folders_public} ${target_folders_private})
 
 target_include_directories(${PROJECT_NAME} PUBLIC 
-  $<BUILD_INTERFACE:${target_folders_public}>
-  $<INSTALL_INTERFACE:${CMAKE_INSTALL_PREFIX}/include>
+  "$<BUILD_INTERFACE:${target_folders_public}>"
+  "$<INSTALL_INTERFACE:${CMAKE_INSTALL_PREFIX}/include>"
   )
 target_include_directories(${PROJECT_NAME} PRIVATE ${target_folders_private})
 

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.18)
 
-project(SkyGui)
+project(SkyGui VERSION 1.0.0)
 
 if(WIN32)
   set(extras WinExtras)
@@ -9,7 +9,7 @@ endif()
 # 3rd party dependencies
 #
 find_package(Qt5 COMPONENTS
-  Core Quick Svg ${extras} # Gui Widgets Qml Widgets   OpenGL
+  Core Quick Svg Xml XmlPatterns ${extras} # Gui Widgets Qml Widgets   OpenGL
   REQUIRED
 )
 
@@ -19,7 +19,7 @@ set(SkyGui_TARGET_LIBRARIES)
 
 if(QT_DEFAULT_MAJOR_VERSION GREATER 4)
   list(APPEND SkyGui_TARGET_LIBRARIES
-    Qt5::Core Qt5::Quick Qt5::QuickPrivate Qt5::Svg) # Qt5::Gui Qt5::Widgets Qt5::WidgetsPrivate Qt5::Qml Qt5::Quick Qt5::QuickPrivate 
+    Qt5::Core Qt5::Quick Qt5::QuickPrivate Qt5::Svg Qt5::Xml Qt5::XmlPatterns) # Qt5::Gui Qt5::Widgets Qt5::WidgetsPrivate Qt5::Qml Qt5::Quick Qt5::QuickPrivate 
 else()
   list(APPEND SkyGui_TARGET_LIBRARIES QT_LIBRARIES)
 endif()
@@ -32,22 +32,22 @@ set(QT_USE_QTOPENGL TRUE)
 
 add_library(${PROJECT_NAME} ${TYPE_OF_LIBRARY} ${CPP} ${HPP})
 
-target_link_libraries(${PROJECT_NAME} PRIVATE SkyCore PUBLIC ${SkyGui_TARGET_LIBRARIES} )
+target_link_libraries(${PROJECT_NAME} PRIVATE SkyCore ${SkyGui_TARGET_LIBRARIES})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES VS_GLOBAL_VcpkgEnabled true)
 
 set(target_folders_public
   ${PROJECT_BINARY_DIR}
-  include
-  include/3rdparty/qtsingleapplication/
-  include/controllers
-  include/declarative
-  include/graphicsview
-  include/image
-  include/io
-  include/kernel
-  include/media
-  include/models
+  ${CMAKE_CURRENT_SOURCE_DIR}/include
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/3rdparty/qtsingleapplication/
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/controllers
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/declarative
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/graphicsview
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/image
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/io
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/kernel
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/media
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/models
 )
 
 set(target_folders_private
@@ -62,10 +62,14 @@ set(target_folders_private
   include/private/models
 )
 
-include_directories(${target_folders_public} ${target_folders_private} ${SkyGui_INCLUDE_DIR})
+#include_directories(${target_folders_public} ${target_folders_private} ${SkyGui_INCLUDE_DIR})
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_public})
-target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_private})
+target_include_directories(${PROJECT_NAME} PUBLIC 
+  "$<BUILD_INTERFACE:${target_folders_public}>"
+  "$<INSTALL_INTERFACE:${CMAKE_INSTALL_PREFIX}/include>"
+  )
+
+target_include_directories(${PROJECT_NAME} PRIVATE ${target_folders_private})
 
 add_definitions(-DQT_${QT_DEFAULT_MAJOR_VERSION} -DQT_LATEST -DQT_QTLOCKEDFILE_IMPORT) #-DQT_QTLOCKEDFILE_IMPORT
 
@@ -84,3 +88,24 @@ generate_export_header(${PROJECT_NAME}
   EXPORT_MACRO_NAME "SKY_GUI_EXPORT"
   EXPORT_FILE_NAME "SkyGuiExports.h"
   )
+
+install(TARGETS ${PROJECT_NAME}
+  EXPORT ${PROJECT_NAME}Targets
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+  RUNTIME DESTINATION bin
+  )
+
+write_basic_package_version_file(
+${PROJECT_NAME}ConfigVersion.cmake
+VERSION ${PACKAGE_VERSION}
+COMPATIBILITY AnyNewerVersion
+)
+
+install(FILES ${HPP} DESTINATION include/${PROJECT_NAME})
+
+install(EXPORT ${PROJECT_NAME}Targets
+FILE ${PROJECT_NAME}Targets.cmake
+NAMESPACE ${PROJECT_NAMESPACE}::
+DESTINATION lib/CMake/
+)

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.18)
 
-project(SkyWeb)
+project(SkyWeb VERSION 1.0.0)
 
 set(CMAKE_AUTOMOC TRUE)
 set(CMAKE_DEBUG_POSTFIX d)
@@ -38,8 +38,8 @@ target_link_libraries(${PROJECT_NAME} PRIVATE ${SkyWeb_TARGET_LIBRARIES} SkyCore
 
 set(target_folders_public
   ${PROJECT_BINARY_DIR}
-  include
-  include/io
+  ${CMAKE_CURRENT_SOURCE_DIR}/include
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/io
 )
 
 set(target_folders_private
@@ -49,8 +49,12 @@ set(target_folders_private
 
 #include_directories(${target_folders_public} ${target_folders_private})
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_public})
-target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_private})
+target_include_directories(${PROJECT_NAME} PUBLIC 
+  "$<BUILD_INTERFACE:${target_folders_public}>"
+  "$<INSTALL_INTERFACE:${CMAKE_INSTALL_PREFIX}/include>"
+  )
+
+target_include_directories(${PROJECT_NAME} PRIVATE ${target_folders_private})
 
 add_definitions(-DQT_${QT_DEFAULT_MAJOR_VERSION} -DQT_LATEST -DSK_WEB_LIBRARY -DSK_DESKTOP) #-DQT_QTLOCKEDFILE_IMPORT -DSKY_CORE_IMPORT -DTORRENT_LINKING_SHARED
 
@@ -73,3 +77,24 @@ generate_export_header(${PROJECT_NAME}
   EXPORT_MACRO_NAME "SKY_WEB_EXPORT"
   EXPORT_FILE_NAME "SkyWebExports.h"
   )
+
+  install(TARGETS ${PROJECT_NAME}
+  EXPORT ${PROJECT_NAME}Targets
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+  RUNTIME DESTINATION bin
+)
+
+write_basic_package_version_file(
+${PROJECT_NAME}ConfigVersion.cmake
+VERSION ${PACKAGE_VERSION}
+COMPATIBILITY AnyNewerVersion
+)
+
+install(FILES ${HPP} DESTINATION include/${PROJECT_NAME})
+
+install(EXPORT ${PROJECT_NAME}Targets
+FILE ${PROJECT_NAME}Targets.cmake
+NAMESPACE ${PROJECT_NAMESPACE}::
+DESTINATION lib/CMake/
+)

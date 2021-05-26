@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.18)
 
-project(SkyTorrent)
+project(SkyTorrent VERSION 1.0.0)
 
 if(WIN32)
   set(extras WinExtras)
@@ -8,7 +8,7 @@ endif()
 #
 # 3rd party dependencies
 #
-find_package(Qt5 COMPONENTS Core)
+find_package(Qt5 COMPONENTS Core Network Gui Quick)
 
 include(files.cmake)
 
@@ -16,7 +16,7 @@ set(SkyTorrent_TARGET_LIBRARIES)
 
 if(QT_DEFAULT_MAJOR_VERSION GREATER 4)
   list(APPEND SkyTorrent_TARGET_LIBRARIES
-     ) # Qt5::Core Qt5::Network Qt5::Quick Qt5::QuickPrivate
+    Qt5::Core Qt5::Network Qt5::Gui Qt5::Quick) # Qt5::Core Qt5::Network Qt5::Quick Qt5::QuickPrivate
 else()
   list(APPEND SkyTorrent_TARGET_LIBRARIES QT_LIBRARIES)
 endif()
@@ -31,12 +31,11 @@ target_link_libraries(${PROJECT_NAME} PRIVATE ${SkyTorrent_TARGET_LIBRARIES} Sky
 
 set(target_folders_public
   ${PROJECT_BINARY_DIR}
-  include
-  #include/libtorrent
-  include/controllers
-  include/io
-  include/media
-  include/torrent
+  ${CMAKE_CURRENT_SOURCE_DIR}/include
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/controllers
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/io
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/media
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/torrent
 )
 
 set(target_folders_private
@@ -47,10 +46,12 @@ set(target_folders_private
   include/private/torrent
 )
 
-#include_directories(${target_folders_public} ${target_folders_private})
+target_include_directories(${PROJECT_NAME} PUBLIC 
+  "$<BUILD_INTERFACE:${target_folders_public}>"
+  "$<INSTALL_INTERFACE:${CMAKE_INSTALL_PREFIX}/include>"
+  )
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_public})
-target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_private})
+target_include_directories(${PROJECT_NAME} PRIVATE ${target_folders_private})
 
 add_definitions(-DQT_${QT_DEFAULT_MAJOR_VERSION} -DQT_LATEST -DSK_TORRENT_LIBRARY -DSK_DESKTOP) #-DQT_QTLOCKEDFILE_IMPORT -DSKY_CORE_IMPORT -DTORRENT_LINKING_SHARED
 
@@ -73,3 +74,24 @@ generate_export_header(${PROJECT_NAME}
   EXPORT_MACRO_NAME "SKY_TORRENT_EXPORT"
   EXPORT_FILE_NAME "SkyTorrentExports.h"
   )
+
+install(TARGETS ${PROJECT_NAME}
+  EXPORT ${PROJECT_NAME}Targets
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+  RUNTIME DESTINATION bin
+)
+
+write_basic_package_version_file(
+${PROJECT_NAME}ConfigVersion.cmake
+VERSION ${PACKAGE_VERSION}
+COMPATIBILITY AnyNewerVersion
+)
+
+install(FILES ${HPP} DESTINATION include/${PROJECT_NAME})
+
+install(EXPORT ${PROJECT_NAME}Targets
+FILE ${PROJECT_NAME}Targets.cmake
+NAMESPACE ${PROJECT_NAMESPACE}::
+DESTINATION lib/CMake/
+)
