@@ -79,20 +79,24 @@ IF (LIBVLC_FOUND)
       MESSAGE(STATUS "Found LibVLCcore library path:${LIBVLCCORE_LIBRARY}")
     ENDIF (NOT LIBVLC_FIND_QUIETLY)
 
-    if(LIBVLC_FOUND AND NOT TARGET LibVLC::LibVLC)
-      add_library(LibVLC::LibVLC UNKNOWN IMPORTED)
-      set_target_properties(LibVLC::LibVLC PROPERTIES
+    if(LIBVLC_FOUND AND NOT TARGET libvlc)
+      add_library(libvlc UNKNOWN IMPORTED)
+      set_target_properties(libvlc PROPERTIES
           IMPORTED_LOCATION "${LIBVLC_LIBRARY}"
           INTERFACE_INCLUDE_DIRECTORIES "${LIBVLC_INCLUDE_DIR}"
       )
     endif()
 
-    if(LIBVLC_FOUND AND NOT TARGET LibVLC::Core)
-        add_library(LibVLC::Core UNKNOWN IMPORTED)
-        set_target_properties(LibVLC::Core PROPERTIES
+    if(LIBVLC_FOUND AND NOT TARGET libvlccore)
+        add_library(libvlccore UNKNOWN IMPORTED)
+        set_target_properties(libvlccore PROPERTIES
             IMPORTED_LOCATION "${LIBVLCCORE_LIBRARY}"
             INTERFACE_INCLUDE_DIRECTORIES "${LIBVLC_INCLUDE_DIR}"
         )
+    endif()
+
+    if(TARGET libvlc AND TARGET libvlccore)
+      message("libvlc and libvlc targets are defined.")
     endif()
 ELSE (LIBVLC_FOUND)
    IF (LIBVLC_FIND_REQUIRED)

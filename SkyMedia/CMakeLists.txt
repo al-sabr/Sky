@@ -71,7 +71,7 @@ set(target_folders_private
   include/private/vlc
 )
 
-include_directories(${target_folders_public} ${target_folders_private})
+#include_directories(${target_folders_public} ${target_folders_private})
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_public})
 target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_private})
