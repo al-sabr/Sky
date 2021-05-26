@@ -1,7 +1,13 @@
 cmake_minimum_required(VERSION 3.18)
 
-project(Sky VERSION 1.0.0)
+set(PROJECT_NAMESPACE SkyFramework)
 
+project(${PROJECT_NAMESPACE} VERSION 1.0.0)
+
+set(CMAKE_INSTALL_PREFIX ${PROJECT_NAMESPACE})
+
+include(quazip.cmake)
+include(libcharacterset.cmake)
 include(libvlcpp.cmake)
 
 find_package(Qt5 COMPONENTS Core)
@@ -30,8 +36,7 @@ add_subdirectory(SkyMedia)
 add_subdirectory(SkyTorrent)
 add_subdirectory(SkyWeb)
 
-
-export(TARGETS SkyCore SkyBackend SkyGui SkyMedia SkyTorrent SkyWeb QuaZip torrent-rasterbar NAMESPACE SkyFramework:: FILE SkyFrameworkTargets.cmake)
+#export(TARGETS SkyCore SkyBackend SkyGui SkyMedia SkyTorrent SkyWeb QuaZip torrent-rasterbar NAMESPACE SkyFramework:: FILE SkyFrameworkTargets.cmake)
 
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file(
