@@ -32,7 +32,7 @@ set(QT_USE_QTOPENGL TRUE)
 
 add_library(${PROJECT_NAME} ${TYPE_OF_LIBRARY} ${CPP} ${HPP})
 
-target_link_libraries(${PROJECT_NAME} PRIVATE ${SkyGui_TARGET_LIBRARIES} SkyCore)
+target_link_libraries(${PROJECT_NAME} PRIVATE SkyCore PUBLIC ${SkyGui_TARGET_LIBRARIES} )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES VS_GLOBAL_VcpkgEnabled true)
 
