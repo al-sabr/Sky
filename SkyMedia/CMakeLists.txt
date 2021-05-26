@@ -42,9 +42,9 @@ add_library(${PROJECT_NAME} ${TYPE_OF_LIBRARY} ${CPP} ${HPP})
 set(TORRENT_LINKING_SHARED ON)
 
 # Added necessary headers so that it can compile.
-include_directories(${LIBVLC_INCLUDE_DIR})
+target_include_directories(${PROJECT_NAME} PUBLIC ${LIBVLC_INCLUDE_DIR})
 
-target_link_libraries(${PROJECT_NAME} PRIVATE SkyCore SkyGui ${LIBVLC_LIBRARY} ${LIBVLCCORE_LIBRARY})
+target_link_libraries(${PROJECT_NAME} PRIVATE SkyCore SkyGui PUBLIC ${LIBVLC_LIBRARY} ${LIBVLCCORE_LIBRARY})
 
 set(target_folders_public
   ${PROJECT_BINARY_DIR}
