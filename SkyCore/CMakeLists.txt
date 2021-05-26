@@ -34,15 +34,15 @@ target_link_libraries(${PROJECT_NAME} PUBLIC ${SkyCore_TARGET_LIBRARIES})
 
 set(target_folders_public
   ${PROJECT_BINARY_DIR}
-  include
-  include/3rdparty/qtsingleapplication
-  include/controllers
-  include/global
-  include/io
-  include/kernel
-  include/network
-  include/plugin
-  include/thread
+  ${CMAKE_CURRENT_SOURCE_DIR}/include
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/3rdparty/qtsingleapplication
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/controllers
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/global
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/io
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/kernel
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/network
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/plugin
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/thread
   
 )
 set(target_folders_private
@@ -60,7 +60,10 @@ set(target_folders_private
 
 #include_directories(${target_folders_public} ${target_folders_private})
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_public})
+target_include_directories(${PROJECT_NAME} PUBLIC 
+  $<BUILD_INTERFACE:${target_folders_public}>
+  $<INSTALL_INTERFACE:${CMAKE_INSTALL_PREFIX}/include>
+  )
 target_include_directories(${PROJECT_NAME} PRIVATE ${target_folders_private})
 
 add_definitions(-DQT_${QT_DEFAULT_MAJOR_VERSION} -DQT_LATEST -DSK_NO_SCRIPT) #-DQT_QTLOCKEDFILE_IMPORT
