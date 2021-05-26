@@ -27,7 +27,7 @@ add_library(${PROJECT_NAME} ${TYPE_OF_LIBRARY} ${CPP} ${HPP})
 
 set(TORRENT_LINKING_SHARED ON)
 
-target_link_libraries(${PROJECT_NAME} ${SkyTorrent_TARGET_LIBRARIES} SkyCore SkyGui torrent-rasterbar) #LibtorrentRasterbar::torrent-rasterbar
+target_link_libraries(${PROJECT_NAME} PRIVATE ${SkyTorrent_TARGET_LIBRARIES} SkyCore SkyGui torrent-rasterbar) #LibtorrentRasterbar::torrent-rasterbar
 
 set(target_folders_public
   ${PROJECT_BINARY_DIR}
@@ -47,7 +47,7 @@ set(target_folders_private
   include/private/torrent
 )
 
-include_directories(${target_folders_public} ${target_folders_private})
+#include_directories(${target_folders_public} ${target_folders_private})
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_public})
 target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_private})

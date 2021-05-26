@@ -34,7 +34,7 @@ list(APPEND SkyWeb_TARGET_LIBRARIES)
 
 add_library(${PROJECT_NAME} ${TYPE_OF_LIBRARY} ${CPP} ${HPP})
 
-target_link_libraries(${PROJECT_NAME} ${SkyWeb_TARGET_LIBRARIES} SkyCore)
+target_link_libraries(${PROJECT_NAME} PRIVATE ${SkyWeb_TARGET_LIBRARIES} SkyCore)
 
 set(target_folders_public
   ${PROJECT_BINARY_DIR}

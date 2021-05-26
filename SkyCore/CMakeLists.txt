@@ -29,7 +29,7 @@ list(APPEND SkyCore_TARGET_LIBRARIES QuaZip)
 
 add_library(${PROJECT_NAME} ${TYPE_OF_LIBRARY} ${CPP} ${HPP})
 
-target_link_libraries(${PROJECT_NAME} ${SkyCore_TARGET_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} PRIVATE ${SkyCore_TARGET_LIBRARIES})
 
 set(target_folders_public
   ${PROJECT_BINARY_DIR}

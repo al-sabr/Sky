@@ -24,7 +24,7 @@ endif()
 
 add_library(${PROJECT_NAME} ${TYPE_OF_LIBRARY} ${CPP} ${HPP})
 
-target_link_libraries(${PROJECT_NAME} ${SkyBackend_TARGET_LIBRARIES} SkyCore SkyGui SkyTorrent)
+target_link_libraries(${PROJECT_NAME} PRIVATE ${SkyBackend_TARGET_LIBRARIES} SkyCore SkyGui SkyTorrent)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES VS_GLOBAL_VcpkgEnabled true)
 
