@@ -9,6 +9,7 @@ set(CMAKE_INSTALL_PREFIX ${PROJECT_NAMESPACE})
 include(quazip.cmake)
 include(libcharacterset.cmake)
 include(libvlcpp.cmake)
+include(libtorrent.cmake)
 
 find_package(Qt5 COMPONENTS Core)
 
