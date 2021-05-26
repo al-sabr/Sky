@@ -81,8 +81,6 @@ generate_export_header(${PROJECT_NAME}
   EXPORT_MACRO_NAME "SKY_CORE_EXPORT"
   EXPORT_FILE_NAME "SkyCoreExports.h"
   )
-  
-add_subdirectory(externals)
 
 install(TARGETS ${PROJECT_NAME}
         EXPORT ${PROJECT_NAME}Targets
