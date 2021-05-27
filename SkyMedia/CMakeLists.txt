@@ -2,8 +2,6 @@ cmake_minimum_required(VERSION 3.18)
 
 project(SkyMedia VERSION 1.0.0)
 
-#find_package(LibVLC)
-
 set(CMAKE_AUTOMOC TRUE)
 set(CMAKE_DEBUG_POSTFIX d)
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
@@ -41,7 +39,7 @@ add_library(${PROJECT_NAME} ${TYPE_OF_LIBRARY} ${CPP} ${HPP})
 
 set(TORRENT_LINKING_SHARED ON)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE SkyCore SkyGui ${SkyMedia_TARGET_LIBRARIES} PUBLIC ${LIBVLC_LIBRARY} ${LIBVLCCORE_LIBRARY})
+target_link_libraries(${PROJECT_NAME} PRIVATE SkyCore SkyGui ${SkyMedia_TARGET_LIBRARIES} PUBLIC ${LIBVLC_LIBRARY}) #${LIBVLC_LIBRARY} ${LIBVLCCORE_LIBRARY}
 
 set(target_folders_public
   ${PROJECT_BINARY_DIR}

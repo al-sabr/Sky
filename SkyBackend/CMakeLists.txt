@@ -33,9 +33,6 @@ set(target_folders_public
   ${CMAKE_CURRENT_SOURCE_DIR}/include
   ${CMAKE_CURRENT_SOURCE_DIR}/include/io
   ${CMAKE_CURRENT_SOURCE_DIR}/include/media
-  # ${CMAKE_CURRENT_SOURCE_DIR}/include/private
-  # ${CMAKE_CURRENT_SOURCE_DIR}/include/private/io
-  # ${CMAKE_CURRENT_SOURCE_DIR}/include/private/media
 )
 
 set(target_folders_private
