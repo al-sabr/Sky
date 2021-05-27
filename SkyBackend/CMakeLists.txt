@@ -28,24 +28,27 @@ target_link_libraries(${PROJECT_NAME} PRIVATE SkyCore SkyGui SkyTorrent ${SkyBac
 
 set_target_properties(${PROJECT_NAME} PROPERTIES VS_GLOBAL_VcpkgEnabled true)
 
-set(includes_public
+set(target_folders_public
   ${PROJECT_BINARY_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}/include
   ${CMAKE_CURRENT_SOURCE_DIR}/include/io
   ${CMAKE_CURRENT_SOURCE_DIR}/include/media
+  # ${CMAKE_CURRENT_SOURCE_DIR}/include/private
+  # ${CMAKE_CURRENT_SOURCE_DIR}/include/private/io
+  # ${CMAKE_CURRENT_SOURCE_DIR}/include/private/media
 )
 
-set(includes_private
+set(target_folders_private
   include/private
   include/private/io
   include/private/media
 )
 
-target_include_directories(${PROJECT_NAME} PRIVATE ${target_folders_private})
 target_include_directories(${PROJECT_NAME} PUBLIC 
   "$<BUILD_INTERFACE:${target_folders_public}>"
   "$<INSTALL_INTERFACE:${CMAKE_INSTALL_PREFIX}/include>"
 )
+target_include_directories(${PROJECT_NAME} PRIVATE ${target_folders_private})
 
 add_definitions(-DQT_${QT_DEFAULT_MAJOR_VERSION} -DQT_LATEST -DSK_NO_SCRIPT)
 
