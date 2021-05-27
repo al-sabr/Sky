@@ -49,12 +49,10 @@ set(target_folders_public
   ${CMAKE_CURRENT_SOURCE_DIR}/include/controllers
   ${CMAKE_CURRENT_SOURCE_DIR}/include/media
   ${CMAKE_CURRENT_SOURCE_DIR}/include/vlc
-  ${CMAKE_CURRENT_SOURCE_DIR}/include/vlc/plugins
-  #${LIBVLC_INCLUDE_DIR}
+  ${LIBVLC_INCLUDE_DIR}
 )
 
 set(target_folders_private
-  ${PROJECT_BINARY_DIR}
   include/3rdparty/vlc
   include/3rdparty/opengl
   include/private
@@ -64,7 +62,6 @@ set(target_folders_private
 )
 
 # Added necessary headers so that it can compile.
-include_directories(${target_folders_private} ${LIBVLC_INCLUDE_DIR})
 
 target_include_directories(${PROJECT_NAME} PUBLIC 
   "$<BUILD_INTERFACE:${target_folders_public}>"
@@ -73,7 +70,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 
 #target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_public})
 #target_include_directories(${PROJECT_NAME} PUBLIC ${LIBVLC_INCLUDE_DIR})
-#target_include_directories(${PROJECT_NAME} PRIVATE ${target_folders_private} ${LIBVLC_INCLUDE_DIR})
+target_include_directories(${PROJECT_NAME} PRIVATE ${target_folders_private})
 
 add_definitions(-DQT_${QT_DEFAULT_MAJOR_VERSION} -DQT_LATEST -DSK_TORRENT_LIBRARY -DSK_DESKTOP) #-DQT_QTLOCKEDFILE_IMPORT -DSKY_CORE_IMPORT -DTORRENT_LINKING_SHARED
 
