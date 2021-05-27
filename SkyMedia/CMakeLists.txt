@@ -64,6 +64,7 @@ set(target_folders_private
 )
 
 # Added necessary headers so that it can compile.
+include_directories(${target_folders_private} ${LIBVLC_INCLUDE_DIR})
 
 target_include_directories(${PROJECT_NAME} PUBLIC 
   "$<BUILD_INTERFACE:${target_folders_public}>"
@@ -72,7 +73,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 
 #target_include_directories(${PROJECT_NAME} PUBLIC ${target_folders_public})
 #target_include_directories(${PROJECT_NAME} PUBLIC ${LIBVLC_INCLUDE_DIR})
-target_include_directories(${PROJECT_NAME} PRIVATE ${target_folders_private} ${LIBVLC_INCLUDE_DIR})
+#target_include_directories(${PROJECT_NAME} PRIVATE ${target_folders_private} ${LIBVLC_INCLUDE_DIR})
 
 add_definitions(-DQT_${QT_DEFAULT_MAJOR_VERSION} -DQT_LATEST -DSK_TORRENT_LIBRARY -DSK_DESKTOP) #-DQT_QTLOCKEDFILE_IMPORT -DSKY_CORE_IMPORT -DTORRENT_LINKING_SHARED
 
