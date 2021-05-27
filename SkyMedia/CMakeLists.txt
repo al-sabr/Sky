@@ -19,6 +19,8 @@ find_package(Qt5 COMPONENTS
   CONFIG REQUIRED
 )
 
+find_package(LibVLC REQUIRED)
+
 #include(externals.cmake)
 include(files.cmake)
 
@@ -39,7 +41,7 @@ add_library(${PROJECT_NAME} ${TYPE_OF_LIBRARY} ${CPP} ${HPP})
 
 set(TORRENT_LINKING_SHARED ON)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE SkyCore SkyGui ${SkyMedia_TARGET_LIBRARIES} PUBLIC ${LIBVLC_LIBRARY}) #${LIBVLC_LIBRARY} ${LIBVLCCORE_LIBRARY}
+target_link_libraries(${PROJECT_NAME} PRIVATE SkyCore SkyGui ${SkyMedia_TARGET_LIBRARIES} PUBLIC LibVLC::VLC) #${LIBVLC_LIBRARY} ${LIBVLCCORE_LIBRARY}
 
 set(target_folders_public
   ${PROJECT_BINARY_DIR}
