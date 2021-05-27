@@ -6,11 +6,6 @@ project(${PROJECT_NAMESPACE} VERSION 1.0.0)
 
 set(CMAKE_INSTALL_PREFIX ${PROJECT_NAMESPACE})
 
-include(quazip.cmake)
-include(libcharacterset.cmake)
-include(libvlcpp.cmake)
-include(libtorrent.cmake)
-
 find_package(Qt5 COMPONENTS Core)
 
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/CMake")
@@ -29,6 +24,7 @@ else()
   set(TYPE_OF_LIBRARY "SHARED")
 endif()
 
+add_subdirectory(CMakeExternals)
 add_subdirectory(SkyCore)
 add_subdirectory(SkyBackend)
 add_subdirectory(SkyGui)
