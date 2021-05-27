@@ -42,3 +42,6 @@ write_basic_package_version_file(
     )
 
 configure_file(SkyFrameworkConfig.cmake.in SkyFrameworkConfig.cmake @ONLY)
+
+install(FILES ${LIBVLC_LIBRARY} ${LIBVLCCORE_LIBRARY} DESTINATION lib)
+install(FILES ${LIBVLC_RUNTIME} ${LIBVLCCORE_RUNTIME} DESTINATION bin)
