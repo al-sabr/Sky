@@ -19,7 +19,7 @@ find_package(Qt5 COMPONENTS
   CONFIG REQUIRED
 )
 
-find_package(LibVLC REQUIRED)
+find_package(LIBVLC REQUIRED)
 
 #include(externals.cmake)
 include(files.cmake)
@@ -108,6 +108,17 @@ COMPATIBILITY AnyNewerVersion
 )
 
 install(FILES ${HPP} DESTINATION include/${PROJECT_NAME})
+
+add_custom_command(
+    TARGET ${PROJECT_NAME}
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    $<TARGET_FILE:LibVLC::VLC>
+    $<TARGET_FILE:LibVLC::Core>
+    $<TARGET_FILE_DIR:${PROJECT_NAME}> # destinattion
+)
+
+install(FILES ${LIBVLC_RUNTIME} ${LIBVLCCORE_RUNTIME} DESTINATION ${PROJECT_BINARY_DIR})
 
 install(EXPORT ${PROJECT_NAME}Targets
 FILE ${PROJECT_NAME}Targets.cmake
