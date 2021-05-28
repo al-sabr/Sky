@@ -19,6 +19,7 @@ find_package(Qt5 COMPONENTS
   CONFIG REQUIRED
 )
 
+message("FINDLIBVLC from SkyMedia")
 find_package(LIBVLC REQUIRED)
 
 #include(externals.cmake)
