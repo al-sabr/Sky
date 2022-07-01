@@ -31,15 +31,13 @@
 // Static functions
 //-------------------------------------------------------------------------------------------------
 
-/* static */ QCoreApplication * WCoreApplication::create(int & argc, char ** argv)
+/* static */ void WCoreApplication::create()
 {
-    QCoreApplication * application = new QCoreApplication(argc, argv);
 
     W_CREATE_CONTROLLER(WControllerApplication);
 
-    sk->d_func()->initApplication(application, Sk::Multiple, false);
+    sk->d_func()->initApplication(Sk::Multiple, false);
 
-    return application;
 }
 
 #endif // SK_NO_COREAPPLICATION

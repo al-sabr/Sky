@@ -23,19 +23,16 @@
 #ifndef WCOREAPPLICATION_H
 #define WCOREAPPLICATION_H
 
-// Qt includes
-#include <QCoreApplication>
-
 // Sk includes
 #include <Sk>
 #include <SkyCoreExports.h>
 
 #ifndef SK_NO_COREAPPLICATION
 
-class SKY_CORE_EXPORT WCoreApplication : public QCoreApplication
+class SKY_CORE_EXPORT WCoreApplication
 {
 public: // Static functions
-    static QCoreApplication * create(int & argc, char ** argv);
+    static void create();
 };
 
 #endif // SK_NO_COREAPPLICATION

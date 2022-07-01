@@ -47,9 +47,6 @@
 
 #ifndef SK_NO_CONTROLLERAPPLICATION
 
-// Forward declarations
-class QCoreApplication;
-
 class SKY_CORE_EXPORT WControllerApplicationPrivate : public WPrivate
 {
 public:
@@ -66,7 +63,7 @@ public: // Functions
     void undeclareController(WController * controller);
 
 public: // WCoreApplication and WApplication interface
-    void initApplication(QCoreApplication * application, Sk::Type type, bool gui);
+    void initApplication(Sk::Type type, bool gui);
 
 public: // Slots
     void onAboutToQuit();

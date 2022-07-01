@@ -36,12 +36,12 @@
 //-------------------------------------------------------------------------------------------------
 
 /* static */
-void WMockApplication::create(QCoreApplication * application, WControllerApplication::Type type)
+void WMockApplication::create(WControllerApplication::Type type)
 {
 
     W_CREATE_CONTROLLER(WControllerApplication);
 
-    sk->d_func()->initApplication(application, type, true);
+    sk->d_func()->initApplication(type, true);
 
 }
 
