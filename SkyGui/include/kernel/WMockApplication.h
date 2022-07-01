@@ -33,6 +33,7 @@ class SKY_GUI_EXPORT WMockApplication
 {
 public:
     static void create(WControllerApplication::Type type);
+
 };
 
 #endif // SK_NO_APPLICATION

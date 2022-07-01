@@ -121,7 +121,6 @@ WControllerApplicationPrivate::WControllerApplicationPrivate(WControllerApplicat
 
 void WControllerApplicationPrivate::init()
 {
-    application = NULL;
 
     type = Sk::Single;
     gui  = false;
@@ -208,8 +207,6 @@ void WControllerApplicationPrivate::declareController(WController * controller)
 {
     //Q_Q(WControllerApplication);
 
-    controller->setParent(application);
-
     controllers.append(controller);
 
     //emit q->controllerCreated(controller);
@@ -228,12 +225,9 @@ void WControllerApplicationPrivate::undeclareController(WController * controller
 // Private WControllerApplication and WApplication interface
 //-------------------------------------------------------------------------------------------------
 
-void WControllerApplicationPrivate::initApplication(QCoreApplication * application, Sk::Type type,
-                                                                                    bool     gui)
+void WControllerApplicationPrivate::initApplication(Sk::Type type, bool gui)
 {
     Q_Q(WControllerApplication);
-
-    this->application = application;
 
     this->type = type;
     this->gui  = gui;
@@ -241,13 +235,12 @@ void WControllerApplicationPrivate::initApplication(QCoreApplication * applicati
     //---------------------------------------------------------------------------------------------
     // Controllers - declaration order matters
 
-    //W_CREATE_CONTROLLER(WControllerFile);
-    //W_CREATE_CONTROLLER(WControllerNetwork);
-    //W_CREATE_CONTROLLER(WControllerDownload);
-    W_CREATE_CONTROLLER(WControllerXml);
-
+    W_CREATE_CONTROLLER(WControllerFile);
     //W_CREATE_CONTROLLER(WControllerScript);
+    W_CREATE_CONTROLLER(WControllerNetwork);
+    W_CREATE_CONTROLLER(WControllerDownload);
     //W_CREATE_CONTROLLER(WControllerPlugin);
+    W_CREATE_CONTROLLER(WControllerXml);
     
 #ifndef SK_NO_QML
     W_CREATE_CONTROLLER(WControllerDeclarative);

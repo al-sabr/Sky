@@ -43,10 +43,10 @@
 //-------------------------------------------------------------------------------------------------
 
 /* static */
-QApplication * WApplication::create(int & argc, char ** argv, Sk::Type type)
+QApplication * WApplication::create(Sk::Type type)
 {
 #ifdef QT_4
-    QCoreApplication::setAttribute(Qt::AA_ImmediateWidgetCreation);
+    //QCoreApplication::setAttribute(Qt::AA_ImmediateWidgetCreation);
 #else
     //QCoreApplication::setAttribute(Qt::AA_UseOpenGLES);
 #endif
@@ -59,11 +59,7 @@ QApplication * WApplication::create(int & argc, char ** argv, Sk::Type type)
     //qInstallMsgHandler(messageHandler);
 #endif
 
-    QApplication * application = createApplication(argc, argv, type);
-
-    if (application == NULL) return NULL;
-
-    WMockApplication::create(application, type);
+    WMockApplication::create(type);
 
     //---------------------------------------------------------------------------------------------
     // Controllers
@@ -78,38 +74,16 @@ QApplication * WApplication::create(int & argc, char ** argv, Sk::Type type)
 
     qRegisterMetaType<QList<QUrl> >("QList<QUrl>");
 
-    return application;
+    return nullptr;
 }
 
 //-------------------------------------------------------------------------------------------------
 // Protected static functions
 //-------------------------------------------------------------------------------------------------
 
-/* static */ QApplication * WApplication::createApplication(int  &  argc,
-                                                            char ** argv, Sk::Type type)
+/* static */ QApplication * WApplication::createApplication(Sk::Type type)
 {
-    if (type == Sk::Single)
-    {
-        QtSingleApplication * application = new QtSingleApplication(argc, argv);
-
-        QString message;
-
-        for (int i = 0; i < argc; i++)
-        {
-            if (i == argc - 1)
-            {
-                 message.append(QString(argv[i]));
-            }
-            else message.append(QString(argv[i]) + ' ');
-        }
-
-        if (application->sendMessage(message))
-        {
-             return NULL;
-        }
-        else return application;
-    }
-    else return new QApplication(argc, argv);
+    return nullptr;
 }
 
 #endif // SK_NO_APPLICATION

@@ -2,7 +2,7 @@ include(FetchContent)
 
 FetchContent_Declare(
         libtorrent
-        GIT_REPOSITORY "https://github.com/al-sabr/libtorrent"
+        GIT_REPOSITORY "https://github.com/arvidn/libtorrent"
 )
 
 FetchContent_GetProperties(libtorrent) #mispelled name in original post

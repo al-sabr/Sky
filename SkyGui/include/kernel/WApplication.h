@@ -35,10 +35,10 @@
 class SKY_GUI_EXPORT WApplication : public QApplication
 {
 public: // Static functions
-    static QApplication * create(int & argc, char ** argv, Sk::Type type = Sk::Single);
+    static QApplication * create(Sk::Type type = Sk::Single);
 
 protected: // Static functions
-    static QApplication * createApplication(int & argc, char ** argv, Sk::Type type);
+    static QApplication * createApplication(Sk::Type type);
 };
 
 #endif // SK_NO_APPLICATION
