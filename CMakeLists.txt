@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 3.18)
 
 set(PROJECT_NAMESPACE SkyFramework)
+set(PROJECT_VERSION 1.0.0)
 
-project(${PROJECT_NAMESPACE} VERSION 1.0.0)
+project(${PROJECT_NAMESPACE} VERSION ${PROJECT_VERSION})
 
 #set(CMAKE_INSTALL_PREFIX ${PROJECT_NAMESPACE})
 
@@ -35,7 +36,7 @@ add_subdirectory(SkyMedia)
 add_subdirectory(SkyTorrent)
 add_subdirectory(SkyWeb)
 
-export(TARGETS SkyCore SkyBackend SkyGui SkyMedia SkyTorrent SkyWeb NAMESPACE SkyFramework:: FILE SkyFrameworkTargets.cmake)
+export(TARGETS SkyCore SkyBackend SkyGui SkyMedia SkyTorrent SkyWeb NAMESPACE ${PROJECT_NAMESPACE}:: FILE SkyFrameworkTargets.cmake)
 
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file(
